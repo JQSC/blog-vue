@@ -14,4 +14,4 @@
 express+mongoose+bluebird+七牛存储
 ```
 
-![博客截图](http://ohsmsw5ly.bkt.clouddn.com/image/blog.png)
+![博客截图](https://raw.githubusercontent.com/JQSC/blog-vue/master/public/images/blog.png)
