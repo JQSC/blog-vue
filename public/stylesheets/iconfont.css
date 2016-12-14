@@ -1,0 +1,64 @@
+
+@font-face {font-family: "iconfont";
+  src: url('/fonts/iconfont.eot?t=1475240330'); /* IE9*/
+  src: url('/fonts/iconfont.eot?t=1475240330#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('/fonts/iconfont.woff?t=1475240330') format('woff'), /* chrome, firefox */
+  url('/fonts/iconfont.ttf?t=1475240330') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('/fonts/iconfont.svg?t=1475240330#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-github:before { content: "\e69f"; }
+.icon-weibiaoti1:before { content: "\e613"; }
+.icon-kecheng:before { content: "\e648"; }
+.icon-nodejs:before { content: "\e989"; }
+.icon-logo:before { content: "\e603"; }
+/** 重置列表元素 **/
+ul, ol ,li{ list-style: none; }
+
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ .icon_lists li{
+  float:left;
+  width: 25%;
+
+  text-align: center;
+}
+.icon_lists .icon{
+  font-size: 50px;
+  line-height: 100px;
+  /*margin: 10px auto;*/
+  color:#333;
+  -webkit-transition: font-size 0.25s ease-out 0s;
+  -moz-transition: font-size 0.25s ease-out 0s;
+  transition: font-size 0.25s ease-out 0s;
+
+}
+.icon_lists .icon:hover{
+  font-size: 90px;
+  filter:alpha(opacity=50);  /* ie 有效*/
+  -moz-opacity:0.5; /* Firefox  有效*/
+  opacity: 0.5; /* 通用，其他浏览器  有效*/
+}
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ks-clear, .clear {
+  *zoom: 1;
+}
+
+

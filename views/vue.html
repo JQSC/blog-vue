@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Csq | 个人博客</title>
+    <!-- Bootstrap -->
+    <link href="http://ohsmsw5ly.bkt.clouddn.com/css/index.css" rel='stylesheet' type='text/css' />
+    <link href="http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- start plugins -->
+
+  <!--  <script src="/javascripts/html5shiv.js"></script>
+    <script src="/javascripts/respond.min.js"></script>-->
+
+    <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(function() {
+            var pull = $('#pull');
+            menu = $('nav ul');
+            menuHeight	= menu.height();
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="/fonts/css/font-awesome.min.css">
+
+    <% if (locals.showTests) {  %>
+
+    <link rel="stylesheet" href="/vendor/mocha.css">
+    <%  } %>
+
+
+</head>
+<body>
+<div id="app">
+</div>
+
+<script src="/dist/vendor.js"></script>
+<script src="/dist/main.js"></script>
+
+
+<% if (locals.showTests) {  %>
+        <div id="mocha"></div>
+        <script src="/vendor/mocha.js"></script>
+        <script src="/vendor/chai.js"></script>
+        <script>
+            mocha.ui('tdd')
+            var assert=chai.assert
+        </script>
+        <script src="/qa/global-tests.js"></script>
+<% if (pageTestScript) {  %>
+      <div>pageTestScript测试</div>
+<script src="<%=pageTestScript%>"></script>
+<%  } %>
+        <script>mocha.run();</script>
+<%  } %>
+</body>
+
+</html>
