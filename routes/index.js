@@ -10,7 +10,7 @@ var Promise=require('bluebird');
 
 
 //发送邮件中间件
-var nodeMailer=require('../bin/sendmail.js');
+var nodeMailer=require('../lib/sendmail.js');
 
 
 ///获取天气详细情况
@@ -410,7 +410,7 @@ router.post('/SendEmail',function(req,res){
 //文件上传;并将其存储到七牛云平台
 router.post('/uploadFile',function(req,res){
 
-  var uploadFile=require('../bin/fileQiNiu.js')
+  var uploadFile=require('../lib/fileQiNiu.js')
   filePath = './public/main.js';
   nameSpace = 'blog';
   fileName = 'my-nodejs-test.js';
