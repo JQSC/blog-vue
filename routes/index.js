@@ -113,18 +113,16 @@ function commentFind(id,text){
 }
 
 //初始页
-router.get('/', function(req, res) {
+router.get('/*', function(req, res) {
   //res.redirect('/');
   //throw new Error('NOPE！')
   res.render('vue',{fortun:'aaa',pageTestScript:'/qa/test-about.js'});
 });
-router.get('/*', function(req, res) {
+/*router.get('/!*', function(req, res) {
   process.nextTick(function(){
     throw new Error('NOPE！')
   })
-
-
-});
+});*/
 
 
 module.exports = router;

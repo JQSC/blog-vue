@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <title>文件管理系统</title>
+    <link href="http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/bootstrap-table.min.css" rel="stylesheet" />
+    <script src="http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js"></script>
+    <script src="http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap-table.js"></script>
+    <script src="/javascripts/echarts.min.js"></script>
+    <style>
+
+        .table th, .table td {
+            text-align: center;
+
+        }
+        .table td a{ margin-left: 10px;}
+        tbody tr td{ color: rebeccapurple}
+    </style>
+</head>
+<script>
+    $(function () {
+        $('#build').click(build);//.trigger('click');
+        $('#cells, #rows').keyup(function (e) {
+            if (e.keyCode === 13) {
+                build();
+            }
+        });
+    });
+
+    function build() {
+        var cells = $('#cells').val(),
+                rows = $('#rows').val(),
+                i, j, row,
+                columns = [],
+                data = [];
+
+        for (i = 0; i < cells; i++) {
+            columns.push({
+                field: 'field' + i,
+                title: 'Cell' + i
+            });
+        }
+        for (i = 0; i < rows; i++) {
+            row = {};
+            for (j = 0; j < cells; j++) {
+                row['field' + j] = 'Row-' + i + '-' + j;
+            }
+            data.push(row);
+        }
+        $('#table').bootstrapTable('destroy').bootstrapTable({
+            columns: columns,
+            data: data
+        });
+    }
+
+    function idFormatter(value) {
+        return value ;
+    }
+    window.onload=function(){
+
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var opp={
+            //timeline 组件，提供了在多个 ECharts option 间进行切换、播放等操作的功能。
+            timeline:{
+                axisType: 'category',
+                currentIndex : 0,
+                data : ['2002', '2003']
+            },
+            options: [{
+                //标题组件
+                title: {
+                    text: '项目文件详情',
+                    textStyle: {
+                        fontSize: 22,
+                        fontWeight: 'bolder',
+                        color: '#333'          // 主标题文字颜色
+                    },
+                    x : 'center',
+                    subtext: '数量+大小'
+                },
+                //工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具
+                toolbox: {
+                    show : true,
+                    orient : 'vertical',
+                    x : 'right',
+                    y : 'center',
+                    feature : {
+                        mark : {
+                            show: true,
+                            title : {
+                                mark : '辅助线开关',
+                                markUndo : '删除辅助线',
+                                markClear : '清空辅助线'
+                            },
+                            lineStyle : {
+                                width : 2,
+                                color : '#1e90ff',
+                                type : 'dashed'
+                            }
+                        },
+                        magicType : {show: true, type: ['line', 'bar']},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+
+                },
+                //提示框组件。
+
+                tooltip: {
+                    show: true
+
+                },
+                //显示的图例个数
+                /* legend: {
+                 data:['销量','价格']
+
+                 },*/
+                //直角坐标系 grid 中的 x 轴，
+                xAxis: {
+                    //axisLabel:'月',
+                    type : 'category',
+                    axisLabel : {
+                        formatter: '{value} 月'
+                    },
+                    data: ["1","2","3","4","5","6"]
+                },
+                //直角坐标系 grid 中的 y轴，
+                yAxis: {
+
+                },
+                series: [
+                ]
+            },{
+                //标题组件
+
+                //工具栏。内置有导出图片，数据视图，动态类型切换，数据区域缩放，重置五个工具
+                tooltip: {
+                    show : true,       //显示工具栏
+                    orient : 'vertical',  //工具栏方向
+                    x: 'right',
+                    y: 'center',
+                    feature: {
+                        mark : {show: true},
+                        dataView: {readOnly: false},
+                        magicType : {show: true, type: ['line','funnel']},
+                        restore: {},
+                        saveAsImage: {}
+                    }
+
+                },
+                //提示框组件。
+                tooltip: {
+                    show: true
+
+                },
+                //显示的图例个数
+                /*legend: {
+                 data:['销量','价格']
+
+                 },*/
+                //直角坐标系 grid 中的 x 轴，
+                xAxis: {
+                    axisLabel : {
+                        type : 'category',
+                        formatter: '{value} 月份'
+                    },
+                    data: ["7","8","8","10","11","12"]
+                },
+                //直角坐标系 grid 中的 y轴，
+                yAxis: {
+
+                },
+                series: [
+                ]}]
+        };
+        for(var i=0 ; i<opp.options.length;i++) {
+            opp.options[i].legend = {
+                x : 'right',
+                data: ['数量', '大小']
+
+            }
+
+        }
+
+        opp.options[0].series = [{
+            name: '数量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        },{
+            name: '大小',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+        }]
+        GetAjax()
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(opp);
+
+        function GetAjax()
+        {
+
+
+            ///ajax 应用
+            var xhr=new XMLHttpRequest()
+            xhr.onreadystatechange=myCallback
+            xhr.open('GET','/json/data.json',true)
+            xhr.send('')
+            function myCallback()
+            {
+                if(xhr.readyState<4)
+                {
+                    return "失败！"
+                }
+                if(xhr.status!==200){
+
+                    //alert("error！")
+                    return
+                }
+                //alert(xhr.responseText)
+            }
+
+        }
+    }
+</script>
+<body>
+<!--导航条 navbar-fixed-top  可让导航条固定    navbar-inverse 改变导航条外观   -->
+<nav class="navbar navbar-fixed-top navbar-inverse navbar-default">
+    <!--container 居中 container-fluid 自适应  -->
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <!--商标 -->
+            <a class="navbar-brand" href="#">文件管理系统</a>
+        </div>
+
+        <!-- 导航条收缩后 包裹的代码将以浮动显示 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--导航项目 -->
+            <ul class="nav navbar-nav" >
+                <li class="active"><a href="#">文件类型 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">描述</a></li>
+                <!--下拉菜单 -->
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">医院 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#Chrome">沈阳医大</a></li>
+                        <li><a href="#Firefox">青医附院</a></li>
+                        <li><a href="#IE">协和</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#Opera">。。。</a></li>
+                        <li><a href="#Safari">。。。</a></li>
+                        <!--分割线
+                        <li role="separator" class="divider"></li>
+                         -->
+
+                    </ul>
+                </li>
+                <li><a href="#" data-toggle="modal" data-target="#about-modal">扩充</a></li>
+                <li><a href="#">用户ID: <%=user %></a></li>
+            </ul>
+            <!--查询 -->
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">查询</button>
+
+                <a data-toggle="modal" data-target="#about-moda2" style="height:34px;color: magenta" href="#">用户昵称:  <%=name %></a>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+
+</nav>
+<hr class="divider">
+<!-- 删栏布局 -->
+<div class="container" id="sl">
+    <!--横线-->
+    <hr class="divider">
+    <!--标签页-->
+    <ul class="nav nav-tabs" id="tab-list">
+        <li class="active"><a href="#Chrome" data-toggle="tab" >文件列表</a> </li>
+        <li ><a href="#List" data-toggle="tab">文件上传</a></li>
+        <li><a href="#Firefox" data-toggle="tab">子目录</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+
+        <div class="tab-pane fade in active" id="Chrome">
+            <hr class="divider">
+            <div id="main" style="width: 100%;height:400px;">
+
+            </div>
+            <hr class="divider">
+            <div class="col-md-12">
+                <!--<div>
+                    <label>Cells: </label><input id="cells" type="text" placeholder="Cells" value="4">
+                    <label>Rows: </label><input id="rows" type="text" placeholder="Rows" value="100">
+                    <button id="build" class="btn btn-default">Build</button>
+                </div>-->
+                <table id="table"
+                       data-toggle="table"
+                       data-url="/json/data.json"
+                       data-show-columns="true"
+                       data-search="true"
+                       data-show-refresh="true"
+                       data-show-toggle="true"
+                       data-pagination="true"
+                       data-height="500">
+                    <thead>
+                    <tr>
+                        <th data-field="filename" data-formatter="idFormatter">文件名</th>
+                        <th data-field="xdata">修改日期</th>
+                        <th data-field="dx">文件大小</th>
+                        <th data-field="cz">编辑</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--文件上传-->
+        <div class="tab-pane fade" id="List">
+
+            <hr class="divider">
+            <div class="col-md-4 form-group" >
+                <form action="upload" method="post" enctype="multipart/form-data" style="margin-left:40px; margin-top: 30px;">
+                    <p>
+                        <input type="text" name="photo[name]" placeholder="Name"></p>
+                    <input type="hidden" name="user"  value=<%=user %> >
+                    <p> <input type="file" name="photo[image]"></p>
+                    <p> <input type="submit" value="上传" ></p>
+                </form>
+            </div>
+            <div class="col-md-8">
+                <h3>文件已上传列表</h3>
+                <ul class="list-group">
+                    <% data.forEach(function(files){  %>
+                    <li class="list-group-item"><%=files%></li>
+                    <%  }) %>
+                </ul>
+            </div>
+        </div>
+        <!--子目录-->
+        <div class="tab-pane fade" id="Firefox">
+            <div class="col-md-10" >
+
+                <hr class="divider">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新订单</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>文件名</th>
+                                <th>修改日期</th>
+                                <th>文件大小</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>App Air</td>
+                                <td>10</td>
+                                <td>800000</td>
+                                <td><a href="#">下载</a><a href="#">编辑</a><a href="#">删除</a> </td>
+                            </tr>
+                            <tr>
+                                <td>App Pid</td>
+                                <td>20</td>
+                                <td>1000000</td>
+                                <td>大王</td>
+                            </tr>
+                            <tr>
+                                <td>App pro</td>
+                                <
+                                <td>50</td>
+                                <td>1500000</td>
+                                <td>小王</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!-- 下拉菜单-->
+                        <div class="dropup">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                查看详情
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a href="#">明细1</a></li>
+                                <li><a href="#">明细2</a></li>
+                                <li><a href="#">明细3</a></li>
+                                <li><a href="#">明细4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!--
+弹出框-->
+<div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title" id="modal-label">关于</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead">本网页由池圣齐闲暇制作,如有不足，请多多指教。</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">了解了</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="about-moda2" tabindex="-1" role="dialog" aria-labelledby="modal-labe2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title" id="modal-labe2">当前用户信息:</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead">用户名:<%=user %></p>
+                <p class="lead">密码:<%=password %></p>
+                <p class="lead">昵称:<%=name %></p>
+                <p class="lead">邮箱:<%=email %></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

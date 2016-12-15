@@ -1,10 +1,20 @@
 var express = require('express');
 var router = express.Router();
-
+var db = require('../database/db')
+var user=db.user;
+var fs=require('fs')
 /* GET users listing. */
 router.get('/', function(req, res) {
 
-  res.render('admin', { title: "测试",content:"&nbsp;&nbsp;&nbsp;&nbsp;<p>我是池圣齐</p>"});
+  var data = [];
+   /* fs.readdir('./public/file', function (ev2, fill) {
+    fill.forEach(function (fz) {
+      data.push(fz)
+    });*/
+    var arr=[];
+    console.log(arr)
+    res.render('console', { user:arr[0] ,data:data,name:arr[2],password:arr[1],email:arr[3]});
+
 });
 
 
@@ -25,7 +35,6 @@ router.post('/savelog', function(req, res) {
   });
   textAll.save();
   res.render('admin', { title:req.body.title ,content: req.body.content } );
-
 });
 
 
