@@ -1,0 +1,200 @@
+/**
+ * Created by chi on 2016/12/15.
+ */
+var express = require('express');
+var router = express.Router();
+var db = require('../database/db')
+var user=db.user;
+var comments=db.comments;
+var messages=db.messages;
+
+
+//获取留言
+router.post('/GetNote',function(req,res){
+    var pageMessage={limit:5,num:req.body.page};
+    var modelMessage = {
+        search:{},    //查询条件
+        columns:{
+            nickname:1,
+            _id:1,
+            email:1,
+            MessageText:1,
+            day:1,
+            floor:1,
+        },
+        page:pageMessage
+    };
+    messages.findPagNote(modelMessage,function(err, pageCount, list){
+        if(!err){
+            var listPage={
+                list:list,
+                pageCount:pageCount
+            };
+            res.json(listPage)
+        }
+    })
+});
+
+//获取天气内容
+router.get('/GetWeather', function(req, res) {
+    request(options, function (err, response, string) {
+        if (!err) {
+            var jsonStr = eval('(' + string + ')') ;
+            res.json(jsonStr)
+        } else {
+            console.log(err)
+        }
+    })
+});
+
+//获取文章内容
+router.post('/getContentMain',function(req,res){
+
+    var search={};
+    //查看哪页
+    /*
+     limit:3，每页限制3条记录
+     num:1，查询的页面
+     pageCount，一共有多少页
+     size，当前页面有多少条
+     记录
+     numberOf，分页用几个标签显示*/
+    var page={limit:3,num:req.body.num};
+    var model = {
+        search:search,    //查询条件
+        //数据返回字段
+        columns:{
+            title:1,
+            _id:1,
+            contentTxt:1,
+            day:1,            //日期
+            comment:1,       // 评论数量
+            readNum:1,       // 阅读量
+            author:1,        //作者
+            praise:1,         //点赞数量
+            keyword:1
+        },
+        page:page
+    };
+    user.findPagination(model,function(err, pageCount, list){
+        if(!err){
+            var listPage={
+                list:list,
+                pageCount:pageCount
+            };
+            res.json(listPage)
+        }
+    })
+});
+
+
+///跳转文章页
+router.post('/GetArticleContent', function(req, res) {
+    var id=req.body.articleId
+    //console.log(id)
+    findById(id)
+        .then(function(text){
+            return articleUpdate(id,text)
+        }).then(function(list){
+        var titleNew=list.title;
+        var contentNew=list.content;
+        var keyword=list.keyword.toUpperCase();
+        // console.log(titleNew)
+        var comment={
+            title:titleNew, content:contentNew, commentId:id ,keyword:keyword};
+        res.json(comment)
+    })
+});
+
+
+//获取文章列表
+router.get('/getArticleList',function(req,res) {
+    user.find({},{'title':1},{limit:20},function(error, results){
+        if(!error){
+            res.json(results)
+        }
+
+    })
+})
+
+
+//获取评论
+router.post('/GetComment', function(req, res) {
+    var searchId = req.body.articleId;
+    //console.log(searchId)
+    comments.find({articleId:searchId},function(err,article) {
+        if (!err) {
+            var listComment = {
+                articleNum:article.length,article:article
+            };
+            //console.log(listComment)
+            res.json(listComment)
+        }
+    })
+});
+
+
+
+var marked = require('marked');
+var fs = require('fs');
+
+/* GET home page. */
+router.get('/aaa',function(req, res, next) {
+    fs.readFile('./marked.md', 'utf-8',function(err, data) {
+        var html = marked(data);
+        console.log(html)
+        res.render('marker',{text:html})
+    })
+
+});
+
+
+//发送邮件中间件
+var nodeMailer=require('../lib/sendmail.js');
+//发送邮件
+router.post('/SendEmail',function(req,res){
+
+    var Email = req.body.Email;
+    //'"池圣齐"<916024826@qq.com>'
+    var contentList={
+        addressee:Email,
+        headline:'池圣齐博客发来的一封邮件',
+        title:'<h2>邮件订阅成功!!:</h2><h3> ' +
+        '<a href="http://chisir.top">' +
+        'http://chisir.top</a></h3>'
+    };
+    nodeMailer.SendMail(contentList,function(err,info){
+        if(err){
+            res.json({success:''});
+            console.log(err)
+        } else{
+            res.json({success:"OK!!"});
+            console.log("邮件发送成功!!")
+        }
+    });
+});
+
+
+//文件上传;并将其存储到七牛云平台
+router.post('/uploadFile',function(req,res){
+
+    var uploadFile=require('../lib/fileQiNiu.js')
+    filePath = './public/main.js';
+    nameSpace = 'blog';
+    fileName = 'my-nodejs-test.js';
+    try {
+        uploadFile.uploadFile(filePath,fileName,nameSpace,function(err,ret){
+            if(!err){
+                console.log("上传成功:"+ret)
+                res.json({success:'OK!!!'})
+            }
+        })
+    }
+    catch (err){
+        console.error("上传文件出现异常错误!"+err.stack)
+        res.status=500
+        res.setHeader('content-type','text/plain')
+        res.end('Server error')
+    }
+
+});
