@@ -1,7 +1,7 @@
 {
-  "name": "vue-2.0",
-  "version": "2.0.0",
-  "description": "vue+webapck+nodejs",
+  "name": "blog-vue",
+  "version": "1.0.1",
+  "description": "vue+webapck+express",
   "main": "app.js",
   "scripts": {
     "start": "webpack",
@@ -60,7 +60,7 @@
   "keywords": [
     "vue",
     "webpack",
-    "node.js",
+    "mongoose",
     "express"
   ]
 }
