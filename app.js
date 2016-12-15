@@ -9,6 +9,7 @@ var fs=require('fs');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var api = require('./routes/api');
 
 var app = express();
 //断言测试
@@ -76,7 +77,7 @@ app.use(function(raq,res,next){
 });
 
 
-app.use('/api', users);
+app.use('/api', api);
 app.use('/admin', users);
 app.use('/', index);
 

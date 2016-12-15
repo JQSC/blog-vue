@@ -27,7 +27,7 @@
         },
         methods:{
             GetWeatherInfo:function(){
-                this.$http.get('/GetWeather').then( function(response) {
+                this.$http.get('/api/GetWeather').then( function(response) {
                     this.text=response.data.results[0].now.text;
                     this.temperature=response.data.results[0].now.temperature;
                 }, function (response) {

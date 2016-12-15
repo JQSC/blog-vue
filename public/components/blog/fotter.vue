@@ -121,7 +121,7 @@
             },
             ///将留言数据发送服务器
             SendLeMessage:function(){
-                this.$http.post('/LeMessage').then(function(res){
+                this.$http.post('/api/LeMessage').then(function(res){
                     this.diglog='<h4>提交成功!!</h4>'
                     this.color='Success'
                     this.alert=true

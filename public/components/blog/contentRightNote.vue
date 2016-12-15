@@ -62,7 +62,7 @@
         methods:{
             GetNoteContent:function(pageNum){
                 var page=pageNum||1
-                this.$http.post('/GetNote',{page:page}).then( function(response) {
+                this.$http.post('/api/GetNote',{page:page}).then( function(response) {
                     this.showLoadNote=false
                     this.items=response.data.list;
                     this.pageItems=[]

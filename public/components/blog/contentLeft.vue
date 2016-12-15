@@ -117,8 +117,7 @@
         },
         methods:{
             getContentMain:function(pagCount){
-                this.$http.post('/getContentMain',{limit:3,num:pagCount}).then(function(res){
-                    console.log("11111111111")
+                this.$http.post('/api/getContentMain',{limit:3,num:pagCount}).then(function(res){
                     this.pageItems=[]
                     for(var i=0;i<res.data.pageCount;i++){
                         var pagCounts={pagCount:i+1,IsActive:false};

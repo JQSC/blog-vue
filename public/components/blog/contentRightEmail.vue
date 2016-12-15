@@ -35,7 +35,7 @@
             },
             SendLeMessage:function(){
 
-                this.$http.post('/SendEmail',{Email:this.Email}).then(function(res){
+                this.$http.post('/api/SendEmail',{Email:this.Email}).then(function(res){
 
                    if(res.data.success){
                        alert("测试邮件已发送目标邮箱!!")
