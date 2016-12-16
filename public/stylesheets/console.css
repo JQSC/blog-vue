@@ -1,0 +1,30 @@
+.nav_button{
+    margin-left: 20px;
+}
+.nav_button button{
+    margin-left: 10px;
+}
+.nav_button button span{
+    margin-left:5px;
+    line-height: 20px;
+}
+.nav_head{
+    width: 50px; height: 50px;
+    margin: 10px;
+}
+.nav_font{
+    font-size: 24px; line-height: 70px;
+    color: white;
+}
+.table_center{
+    text-align: center
+}
+.table_center tbody tr td{
+    text-align: center
+}
+.table_center thead tr th{
+    text-align: center
+}
+.pagination li a{
+    padding: 10px 16px;
+}

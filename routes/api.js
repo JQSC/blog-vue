@@ -34,7 +34,7 @@ router.get('/GetWeather', function(req, res) {
 
 //获取留言
 router.post('/GetNote',function(req,res){
-    var pageMessage={limit:5,num:req.body.page};
+    var pageMessage={limit:5,num:req.body.num};
     var modelMessage = {
         search:{},    //查询条件
         columns:{
@@ -45,10 +45,12 @@ router.post('/GetNote',function(req,res){
             day:1,
             floor:1,
         },
-        page:pageMessage
+        page:pageMessage,
+        sort:req.body.sort||-1
     };
     messages.findPagNote(modelMessage,function(err, pageCount, list){
         if(!err){
+            console.log(list)
             var listPage={
                 list:list,
                 pageCount:pageCount
@@ -62,7 +64,7 @@ router.post('/GetNote',function(req,res){
 //获取文章内容
 router.post('/getContentMain',function(req,res){
 
-    console.log("111111")
+    //console.log("111111")
     var search={};
     //查看哪页
     /*
@@ -72,7 +74,7 @@ router.post('/getContentMain',function(req,res){
      size，当前页面有多少条
      记录
      numberOf，分页用几个标签显示*/
-    var page={limit:3,num:req.body.num};
+    var page={limit:req.body.limit,num:req.body.num};
     var model = {
         search:search,    //查询条件
         //数据返回字段
@@ -87,7 +89,8 @@ router.post('/getContentMain',function(req,res){
             praise:1,         //点赞数量
             keyword:1
         },
-        page:page
+        page:page,
+        sort:req.body.sort||-1
     };
     user.findPagination(model,function(err, pageCount, list){
         if(!err){

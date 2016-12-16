@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
     });*/
     var arr=[];
     console.log(arr)
-    res.render('console', { user:arr[0] ,data:data,name:arr[2],password:arr[1],email:arr[3]});
+    res.render('index', { user:arr[0] ,data:data,name:arr[2],password:arr[1],email:arr[3]});
 
 });
 

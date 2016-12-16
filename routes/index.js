@@ -112,6 +112,20 @@ function commentFind(id,text){
   })
 }
 
+
+router.get('/note', function(req, res) {
+
+  res.render('note');
+});
+router.get('/article', function(req, res) {
+
+  res.render('article');
+});
+router.get('/comment', function(req, res) {
+
+  res.render('comment');
+});
+
 //初始页
 router.get('/*', function(req, res) {
   //res.redirect('/');

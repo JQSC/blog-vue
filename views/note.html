@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <title>网站信息</title>
+  <link href="http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js"></script>
+  <link href="/stylesheets/console.css" rel='stylesheet' type='text/css' />
+  <script src="http://ohsmsw5ly.bkt.clouddn.com/js/vue.min.js"></script>
+  <script src="http://ohsmsw5ly.bkt.clouddn.com/js/vue-resource.min.js"></script>
+</head>
+<body>
+<div class="panel panel-default" id="leMessage">
+  <div class="panel-heading glyphicon glyphicon-pencil" style="width: 100%">留言管理</div>
+  <div class="panel-body">
+    <p class="nav_button">
+      <button type="button" class="btn btn-info glyphicon glyphicon-ok"><span>全选</span></button>
+      <button type="button" class="glyphicon glyphicon-trash btn btn-danger"><span>删除</span></button>
+    </p>
+    <table class="table table_center" style=" width:100%">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>昵称</th>
+        <th>邮箱</th>
+        <th>内容</th>
+        <th>留言日期</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody v-for="item in messages" >
+        <tr>
+          <td><input type="checkbox">{{item.floor}}</td>
+          <td>{{item.nickname}}</td>
+          <td>{{item.email}}</td>
+          <td style="max-width: 150px;overflow: hidden;max-height: 100px;">{{item.MessageText}}</td>
+          <td>{{item.day}}</td>
+          <td><button class="btn btn-info">编辑</button><button class="btn btn-danger">删除</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align: center">
+      <ul class="pagination">
+        <li :class="{disabled:IsDisabled}"><a href="javascript:;" @click="GetNoteContent(1)">&laquo;</a></li>
+        <li><a href="javascript:;" @click="PageUp(-1)">上一页</a></li>
+        <li :class="{active:item.IsActive}" v-for="item in pageItems" @click="PageTurning(item)"><a href="javascript:;">{{item.pagCount}}</a></li>
+        <li><a href="javascript:;" @click="PageUp(1)">下一页</a></li>
+        <li><a href="javascript:;" @click="PageUp(0)">&raquo;</a></li>
+
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+<script>
+  new Vue({
+    el: '#leMessage',
+    data: {
+      messages:[
+        {MessageText: 'Loading...', floor: 1,nickname:'',email:'',day:''}
+      ],
+      IsDisabled:false,
+      pageItems:[
+        {pagCount:1,IsActive:true}
+
+      ],
+      message: 'Hello Vue!'
+    },
+    created:function(){
+      this.GetNoteContent(1);
+    },
+    methods:{
+      GetNoteContent:function(pagCount){
+        this.$http.post('/api/GetNote',{limit:5,num:pagCount,sort:1}).then(function(res){
+          this.pageItems=[]
+          for(var i=0;i<res.data.pageCount;i++){
+            var pagCounts={pagCount:i+1,IsActive:false};
+            this.pageItems.push(pagCounts)
+          }
+          this.pageItems[pagCount-1].IsActive=true
+          this.loading=false
+          this.messages=res.data.list
+          console.log(res.data.list)
+        },function(res){
+          console.log(res)
+        })
+      },
+      PageTurning:function(item){
+        this.showLoadNote=true
+        for(var j=0;j<this.pageItems.length;j++){
+          this.pageItems[j].IsActive=false
+        }
+        item.IsActive=!item.IsActive
+        this.GetNoteContent(item.pagCount);
+      },
+      PageUp:function(type){
+        //上一页
+        this.showLoadNote=true
+        if(type==-1){
+          for(var k=0;k<this.pageItems.length;k++){
+            if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount>1)){
+              this.pageItems[k].IsActive=false
+              this.pageItems[k-1].IsActive=true
+              this.GetNoteContent(this.pageItems[k-1].pagCount);
+            }
+          }
+        }
+        //下一页
+        if(type==1){
+          for(var k=0;k<this.pageItems.length;k++){
+            if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
+              this.pageItems[k].IsActive=false
+              this.pageItems[k+1].IsActive=true
+              console.log(this.pageItems[k+1].pagCount)
+              this.GetNoteContent(this.pageItems[k+1].pagCount);
+            }
+          }
+        }
+        //最后一页
+        if(type==0){
+          for(var k=0;k<this.pageItems.length;k++){
+            if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
+              this.pageItems[k].IsActive=false
+              this.pageItems[this.pageItems.length-1].IsActive=true
+              this.GetNoteContent(this.pageItems.length);
+            }
+          }
+        }
+      }
+
+    }
+  })
+</script>
+</html>

@@ -96,11 +96,12 @@ user.findPagination = function(obj,callback) {
     var col=obj.columns;   //数据返回字段
     //var q={title:1,_id:0};
 
+    var reverse=obj.sort||-1;
     var pageNumber=obj.page.num||1;   //查询的页面，如果为空则默认查询第一页
     var resultsPerPage=obj.page.limit||3;   //每页查询的条数，默认3条
 
     var skipFrom = (pageNumber * resultsPerPage) - resultsPerPage;   //从第几条开始
-    var query = user.find(q,col).sort({_id:-1}).skip(skipFrom).limit(resultsPerPage);
+    var query = user.find(q,col).sort({_id:reverse}).skip(skipFrom).limit(resultsPerPage);
     //exec(cb)即执行完后将调用callback函数
     query.exec(function(error, results) {
         if (error) {
@@ -127,9 +128,9 @@ messages.findPagNote = function(obj,callback) {
     var col=obj.columns;   //数据返回字段
     var pageNumber=obj.page.num||1;   //查询的页面，如果为空则默认查询第一页
     var resultsPerPage=obj.page.limit||5;   //每页查询的条数，默认5条
-
+    var sort=obj.sort||-1
     var skipFrom = (pageNumber * resultsPerPage) - resultsPerPage;   //从第几条开始
-    var query = messages.find(q,col).sort({_id:-1}).skip(skipFrom).limit(resultsPerPage);
+    var query = messages.find(q,col).sort({_id:sort}).skip(skipFrom).limit(resultsPerPage);
     //exec(cb)即执行完后将调用callback函数
     query.exec(function(error, results) {
         if (error) {

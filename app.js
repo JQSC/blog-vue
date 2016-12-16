@@ -8,7 +8,7 @@ var fs=require('fs');
 //var session=require('express-session');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var users = require('./routes/admin');
 var api = require('./routes/api');
 
 var app = express();
