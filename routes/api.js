@@ -50,7 +50,6 @@ router.post('/GetNote',function(req,res){
     };
     messages.findPagNote(modelMessage,function(err, pageCount, list){
         if(!err){
-            console.log(list)
             var listPage={
                 list:list,
                 pageCount:pageCount
@@ -163,7 +162,7 @@ var fs = require('fs');
 router.get('/aaa',function(req, res, next) {
     fs.readFile('./marked.md', 'utf-8',function(err, data) {
         var html = marked(data);
-        console.log(html)
+        ///console.log(html)
         res.render('marker',{text:html})
     })
 
