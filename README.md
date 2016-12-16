@@ -18,4 +18,4 @@ express+mongoose+bluebird+七牛存储
 ![博客截图](https://raw.githubusercontent.com/JQSC/blog-vue/master/public/images/blog.png)
 
 ### 增加后台管理功能
-![后台管理功能截图](https://raw.githubusercontent.com/JQSC/blog-vue/master/public/images/blog.png)
+![后台管理功能截图](https://raw.githubusercontent.com/JQSC/blog-vue/master/public/images/console.png)
