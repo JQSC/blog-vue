@@ -26,7 +26,8 @@ var userScheMa = new Schema({
     readNum:Number,       // 阅读量
     author:String,        //作者
     praise:Number,         //点赞数量
-    keyword:String
+    keyword:String,
+    type:Number
 
 });
 //存储评论
@@ -36,7 +37,8 @@ var commentScheMa = new Schema({
     articleId:String,     //文章id
     articleText:String,     //评论内容
     day:String,       // 日期
-    floor:Number    //楼层
+    floor:Number,    //楼层
+    type:Number
 
 
 });
@@ -46,7 +48,8 @@ var MessageScheMa = new Schema({
     email: String,        //邮箱
     MessageText:String,     //评论内容
     day:String,       // 日期
-    floor:Number    //楼层
+    floor:Number ,   //楼层
+    type:Number
 
 
 });

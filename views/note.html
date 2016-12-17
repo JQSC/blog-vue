@@ -39,7 +39,7 @@
           <td>{{item.email}}</td>
           <td style="max-width: 150px;overflow: hidden;max-height: 100px;">{{item.MessageText}}</td>
           <td>{{item.day}}</td>
-          <td><button class="btn btn-info">编辑</button><button class="btn btn-danger">删除</button></td>
+          <td><button class="btn btn-danger" @click="deleteNote(item._id)">删除</button></td>
         </tr>
       </tbody>
     </table>
@@ -85,8 +85,8 @@
           this.loading=false
           this.messages=res.data.list
           console.log(res.data.list)
-        },function(res){
-          console.log(res)
+        },function(error){
+          console.log(error)
         })
       },
       PageTurning:function(item){
@@ -130,8 +130,14 @@
             }
           }
         }
+      },
+      deleteNote:function(id){
+        this.$http.post('/api/deleteNote',{id:id}).then(function(res){
+                   alert("删除成功!")
+        },function(error){
+          console.log(error)
+        })
       }
-
     }
   })
 </script>

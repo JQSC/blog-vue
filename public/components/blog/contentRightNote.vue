@@ -57,12 +57,12 @@
             }
         },
         created:function(){
-            this.GetNoteContent();
+            this.GetNoteContent(1);
         },
         methods:{
             GetNoteContent:function(pageNum){
                 var page=pageNum||1
-                this.$http.post('/api/GetNote',{page:page}).then( function(response) {
+                this.$http.post('/api/GetNote',{num:page}).then( function(response) {
                     this.showLoadNote=false
                     this.items=response.data.list;
                     this.pageItems=[]

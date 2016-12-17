@@ -34,9 +34,11 @@ router.get('/GetWeather', function(req, res) {
 
 //获取留言
 router.post('/GetNote',function(req,res){
+    console.log(req.body.num)
     var pageMessage={limit:5,num:req.body.num};
+    //type:{ $ne:-1 }
     var modelMessage = {
-        search:{},    //查询条件
+        search:{type:{ $ne:-1 }},    //查询条件
         columns:{
             nickname:1,
             _id:1,
@@ -44,12 +46,14 @@ router.post('/GetNote',function(req,res){
             MessageText:1,
             day:1,
             floor:1,
+            type:1
         },
         page:pageMessage,
         sort:req.body.sort||-1
     };
     messages.findPagNote(modelMessage,function(err, pageCount, list){
         if(!err){
+           // console.log(list)
             var listPage={
                 list:list,
                 pageCount:pageCount
@@ -59,7 +63,14 @@ router.post('/GetNote',function(req,res){
     })
 });
 
-
+//删除留言
+router.post('/deleteNote',function(req,res){
+    var id=req.body.id
+    messages.update({_id:id},{$set:{type:-1}},function (err,a) {
+        if (err) return handleError(err);
+        res.json({success:'OK!'});
+    });
+})
 //获取文章内容
 router.post('/getContentMain',function(req,res){
 
