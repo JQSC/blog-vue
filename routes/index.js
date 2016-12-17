@@ -70,6 +70,9 @@ var MessageFind=new Promise(function(resolve,reject){
   })
 });*/
 
+
+
+
 function findById(id){
   return new Promise(function(resolve,reject){
     user.findById(id,function(err,text){
@@ -111,6 +114,25 @@ function commentFind(id,text){
     })
   })
 }
+
+
+///跳转文章页
+router.post('/GetArticleContent', function(req, res) {
+  var id=req.body.articleId
+  //console.log(id)
+  findById(id)
+      .then(function(text){
+        return articleUpdate(id,text)
+      }).then(function(list){
+    var titleNew=list.title;
+    var contentNew=list.content;
+    var keyword=list.keyword.toUpperCase();
+    // console.log(titleNew)
+    var comment={
+      title:titleNew, content:contentNew, commentId:id ,keyword:keyword};
+    res.json(comment)
+  })
+});
 
 
 router.get('/note', function(req, res) {

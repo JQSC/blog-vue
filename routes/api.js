@@ -9,6 +9,8 @@ var user=db.user;
 var comments=db.comments;
 var messages=db.messages;
 
+
+
 ///获取天气详细情况
 var options={
     //uri: 'http://apis.baidu.com/apistore/weatherservice/cityid?cityid=101010100',
@@ -119,23 +121,7 @@ router.post('/getContentMain',function(req,res){
 });
 
 
-///跳转文章页
-router.post('/GetArticleContent', function(req, res) {
-    var id=req.body.articleId
-    //console.log(id)
-    findById(id)
-        .then(function(text){
-            return articleUpdate(id,text)
-        }).then(function(list){
-        var titleNew=list.title;
-        var contentNew=list.content;
-        var keyword=list.keyword.toUpperCase();
-        // console.log(titleNew)
-        var comment={
-            title:titleNew, content:contentNew, commentId:id ,keyword:keyword};
-        res.json(comment)
-    })
-});
+
 
 
 //获取文章列表

@@ -67,7 +67,7 @@
         },
         methods:{
             GetComment:function(){
-                this.$http.post('/GetComment',{articleId:this.fun||this.$route.params.id}).then(function(res){
+                this.$http.post('/api/GetComment',{articleId:this.fun||this.$route.params.id}).then(function(res){
                     this.articleNum=res.data.articleNum
                     this.comments=res.data.article
 
