@@ -18,7 +18,7 @@
     <div class="panel-heading glyphicon glyphicon-pencil" style="width: 100%">文章管理</div>
     <div class="panel-body">
         <p class="nav_button">
-            <button type="button" class="btn btn-info glyphicon glyphicon-ok"><span>全选</span></button>
+            <button type="button" class="btn btn-info glyphicon glyphicon-ok" @click="allChecked"><span>全选</span></button>
             <button type="button" class="glyphicon glyphicon-trash btn btn-danger"><span>删除</span></button>
         </p>
         <table class="table table_center table-hover">
@@ -36,14 +36,14 @@
             </thead>
             <tbody v-for="item in articles">
                 <tr>
-                    <td><input type="checkbox">{{item.id}}</td>
+                    <td><input type="checkbox" :checked="item.check" @click="item.check=!item.check">{{item.id}}</td>
                     <td>{{item.keyword}}</td>
                     <td>{{item.title}}</td>
                     <td>{{item.day}}</td>
                     <td>{{item.comment}}</td>
                     <td>{{item.readNum}}</td>
                     <td>{{item.praise}}</td>
-                    <td><button class="btn btn-info">编辑</button><button class="btn btn-danger">删除</button></td>
+                    <td><button class="btn btn-info">编辑</button><button class="btn btn-danger" @click="deleteCheck(item.check)">删除</button></td>
                 </tr>
             </tbody>
         </table>
@@ -66,6 +66,7 @@
         el: '#article',
         data: {
             loading:true,
+            check:false,
             articles:[
                 {   id:'-',
                     title:'Loading...',    //文章标题
@@ -73,7 +74,9 @@
                     comment:'-',  //评论数量
                     readNum:'-',  //阅读量
                     praise:'-',  //点赞数
-                    keyword:'-'} //关键字}
+                    keyword:'-', //关键字
+                    check:true
+                }
             ],
             IsActive:false,
             message: 'Hello Vue!',
@@ -87,12 +90,21 @@
         this.getContentMain(1);
     },
         methods:{
+            deleteCheck:function(check){
+
+            },
+            allChecked:function(){
+                this.articles.forEach(function (obj) {
+                    obj.check=!obj.check
+                })
+            },
             getContentMain:function(pagCount){
                 this.$http.post('/api/getContentMain',{limit:5,num:pagCount,sort:1}).then(function(res){
                     this.pageItems=[]
                     for(var i=0;i<res.data.pageCount;i++){
                         var pagCounts={pagCount:i+1,IsActive:false};
                         this.pageItems.push(pagCounts)
+                        res.data.list[i].check=false
                     }
                     this.pageItems[pagCount-1].IsActive=true
                     this.loading=false
