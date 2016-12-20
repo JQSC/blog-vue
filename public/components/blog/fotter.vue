@@ -19,7 +19,8 @@
                             <input type="text" name="email" v-model="email" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email';}">-->
                             <el-col :span="30" class="tac">
                                 <el-autocomplete v-model="state" :fetch-suggestions="querySearch"  placeholder="起个昵称吧" @select="handleSelect"></el-autocomplete>
-                                <input  type="text" v-model="email" placeholder="Email" >
+                                <input  type="text" v-model="email" @blur="fun_email()" placeholder="Email" v-bind:class="{form_waring :waring_email}">
+                                <p v-show="waring_email" style="color:#FF4949"><span style="padding-right: 10px">*</span>邮箱格式有误</p>
                             </el-col>
                             <div class="btn-group" style="width: 100%;background-color: #9C9C9C;border-radius: 4px;">
                                 <button type="button" class="btn btn-default" :class="[item.position]" onmouseover="this.style.backgroundColor='';"
@@ -69,6 +70,9 @@
     .right{
         position: relative ; float: right !important;
     }
+    .form_waring{
+        border:1px solid #FF4949!important;
+    }
 </style>
 <script>
     import diglog from '../Mycomponents/diglog.vue'
@@ -84,7 +88,6 @@
                     {gly:'glyphicon glyphicon-eye-open',position:'',text:'预览'},
                     {gly:'glyphicon glyphicon-trash',position:'',text:'清空'},
                     {gly:'glyphicon glyphicon-question-sign',position:'',text:'帮助'},
-
                     {gly:'glyphicon glyphicon-resize-full',position:'right',text:'全屏'}
 
                 ],
@@ -96,7 +99,9 @@
                 state: '',
                 email:'',
                 nickname:'起个昵称吧',
-                messages:''
+                messages:'',
+                waring_name:false,
+                waring_email:false
             }
         }, components:{
             diglog
@@ -105,15 +110,32 @@
             this.restaurants = this.loadAll();
         },
         methods:{
+            //邮箱验证
+            fun_email:function(){
+                var re=/^\w+@[a-z0-9]+(\.[a-z]{2,}){1,3}$/ig
+                if(!re.test(this.email)){
+                    this.waring_email=true
+                }else{
+                    this.waring_email=false
+                }
+            },
+            //昵称栏光标移开事件
+            fun_name:function(){
+             var re=/\D+/g
+                if(!re.test(this.state)){
+                    this.waring_name=true
+                }else{
+                    alert(22)
+                    this.waring_name=false
+                }
+            },
             writingPrompt:function(index){
                switch (index){
                    case 0:
                        this.messages=this.messages+'****'
                        break;
-
                    default :
                        break
-
                }
             },
             close:function(){
@@ -132,7 +154,11 @@
                     console.log(res.data.success)
 
                 },function(res){
-
+                    this.diglog='<h4>提交失败,服务器异常!!</h4>'
+                    this.color='Danger'
+                    this.alert=true
+                    var self=this;
+                   
                     console.log(res)
                 })
             },

@@ -118,13 +118,13 @@
         methods:{
             getContentMain:function(pagCount){
                 this.$http.post('/api/getContentMain',{limit:3,num:pagCount}).then(function(res){
-                    this.pageItems=[]
+                    this.pageItems=[];
                     for(var i=0;i<res.data.pageCount;i++){
                         var pagCounts={pagCount:i+1,IsActive:false};
                         this.pageItems.push(pagCounts)
                     }
-                    this.pageItems[pagCount-1].IsActive=true
-                    this.loading=false
+                    this.pageItems[pagCount-1].IsActive=true;
+                    this.loading=false;
                     this.contentMains=res.data.list
                     console.log(res.data.list)
                 },function(res){
@@ -132,12 +132,12 @@
                 })
             },
             PageTurning:function(item){
-                this.loading=true
+                this.loading=true;
                 for(var j=0;j<this.pageItems.length;j++){
                     this.pageItems[j].IsActive=false
                 }
-                item.IsActive=!item.IsActive
-                this.contentMains=[]
+                item.IsActive=!item.IsActive;
+                this.contentMains=[];
                 this.getContentMain(item.pagCount);
             },
             PageUp:function(type){
@@ -146,9 +146,9 @@
                 if(type==-1){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount>1)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[k-1].IsActive=true
-                            this.contentMains=[]
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[k-1].IsActive=true;
+                            this.contentMains=[];
                             this.loading=true;
                             this.getContentMain(this.pageItems[k-1].pagCount);
                         }
@@ -158,9 +158,9 @@
                 if(type==1){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[k+1].IsActive=true
-                            this.contentMains=[]
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[k+1].IsActive=true;
+                            this.contentMains=[];
                             this.loading=true;
                             this.getContentMain(this.pageItems[k+1].pagCount);
                         }
@@ -170,9 +170,9 @@
                 if(type==0){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[this.pageItems.length-1].IsActive=true
-                            this.contentMains=[]
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[this.pageItems.length-1].IsActive=true;
+                            this.contentMains=[];
                             this.loading=true;
                             this.getContentMain(this.pageItems.length);
                         }
