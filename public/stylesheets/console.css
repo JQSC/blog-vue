@@ -1,8 +1,14 @@
+html {overflow-y: scroll;font-family: "Microsoft YaHei",Arial, Verdana, sans-serif;}
+body,div,button, input, select, textarea,span,p,a{font:14px/1.5 "Microsoft YaHei",Arial,  Verdana, sans-serif;}
 .nav_button{
     margin-left: 20px;
 }
+.nav_buttonTop button{
+    margin-left: 10px;
+}
 .nav_button button{
     margin-left: 10px;
+   font-family: 'Glyphicons Halflings',serif;
 }
 .nav_button button span{
     margin-left:5px;

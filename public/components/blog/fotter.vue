@@ -5,7 +5,6 @@
                 <a href="javascript:;" class="close" @click="close">
                     &times;
                 </a>
-
             </div>
         </transition>
         <div class="footer_bg" id="contact"><!-- start footer -->
@@ -112,7 +111,7 @@
         methods:{
             //邮箱验证
             fun_email:function(){
-                var re=/^\w+@[a-z0-9]+(\.[a-z]{2,}){1,3}$/ig
+                var re=/^\w+@[a-z0-9]+(\.[a-z]{2,3}){1,3}$/ig
                 if(!re.test(this.email)){
                     this.waring_email=true
                 }else{
@@ -158,7 +157,7 @@
                     this.color='Danger'
                     this.alert=true
                     var self=this;
-                   
+
                     console.log(res)
                 })
             },

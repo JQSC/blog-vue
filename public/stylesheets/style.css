@@ -5,11 +5,11 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
 @font-face {
-     font-family: 'open_sansregular';
+	 font-family: 'Microsoft YaHei',Arial,  Verdana, sans-serif;
       src:url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype');
 }
-body {
-	font-family: 'open_sansregular';
+body{
+	font:14px/1.5 "Microsoft YaHei",Arial,  Verdana, sans-serif;
 	background:#ffffff;
 	font-size: 100%;
 }
@@ -303,7 +303,6 @@ nav a#pull {
 	text-align: center;
 }
 .slider_text h2{
-	font-family: 'open_sansregular';
 	text-transform: uppercase;
 	color: #202020;
 	font-size: 3em;
@@ -422,7 +421,6 @@ nav a#pull {
 	line-height: 1.5em;
 }
 .contact_left form input[type="text"],.contact_left form textarea{
-	font-family: 'open_sansregular';
 	margin:20px 0;
 	box-shadow: none;
 	border: 1px solid #303030;
@@ -497,7 +495,7 @@ nav a#pull {
 	color:#2EB398;
 }
 .contact_left form input[type="submit"] {
-	font-family: 'open_sansregular';
+
 	-webkit-appearance: none;
 	cursor: pointer;
 	outline: none;
@@ -655,7 +653,6 @@ h2.style{
 	color: #2EB398;
 }
 .blog_list li span{
-	font-family: 'Kreon', serif;
 	padding-left:10px;
 	font-size: 15px;
 	color: #5a5a5a;
@@ -701,7 +698,6 @@ h2.style{
 }
 
 .blog_right h4{
-	font-family: 'Kreon', serif;
 	text-transform: capitalize;
 	font-size: 2em;
 	color: #3b3b3b;
@@ -889,7 +885,7 @@ h2.style{
 	margin: 8% 0;
 }
 .news_letter form input[type="text"]{
-	font-family: 'open_sansregular';
+
 	font-weight:100;
 	padding: 10px;
 	display: block;
@@ -907,7 +903,6 @@ h2.style{
 }
 .news_letter form input[type="submit"]{
 	margin-top:20px;
-	font-family: 'open_sansregular';
 	-webkit-appearance: none;
 	cursor: pointer;
 	outline: none;
