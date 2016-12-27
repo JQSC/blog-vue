@@ -22,11 +22,11 @@
                                 <p v-show="waring_email" style="color:#FF4949"><span style="padding-right: 10px">*</span>邮箱格式有误</p>
                             </el-col>
                             <div class="btn-group" style="width: 100%;background-color: #9C9C9C;border-radius: 4px;">
-                                <button type="button" class="btn btn-default" :class="[item.position]" onmouseover="this.style.backgroundColor='';"
-                                       onmouseout="this.style.backgroundColor='#9C9C9C';"
-                                        v-for="(item,index) in items" style="border: none;background-color: #9C9C9C"  @click="writingPrompt(index)">
-                                    <span :class="[item.gly]"></span>{{item.text}}
-                                </button>
+                                <!--<button type="button" class="btn btn-default" :class="[item.position]" onmouseover="this.style.backgroundColor='';"-->
+                                       <!--onmouseout="this.style.backgroundColor='#9C9C9C';"-->
+                                        <!--v-for="(item,index) in items" style="border: none;background-color: #9C9C9C"  @click="writingPrompt(index)">-->
+                                    <!--<span :class="[item.gly]"></span>{{item.text}}-->
+                                <!--</button>-->
 
                             </div>
                             <textarea name="MessageText" style="margin-top: 0"

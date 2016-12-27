@@ -36,7 +36,7 @@
         </div>
         <div class="panel-body" >
             <div v-for="item in items">
-                <div class="panel glyphicon glyphicon-chevron-right">
+                <div class="panel glyphicon glyphicon-chevron-right panel_list">
                     <a href="{{item.href}}" @click="changeTitle(item.title)" target="content" style="margin-left: 10px;color:#475669">
                         {{item.title}}
                     </a>
@@ -47,8 +47,8 @@
             <h3 class="panel-title glyphicon glyphicon-edit"><span style="margin-left: 10px">编辑排版</span></h3>
         </div>
         <div class="panel-body">
-            <div class="panel glyphicon glyphicon-chevron-right"><a style="margin-left: 10px;color: #475669">日志编写</a></div>
-            <div class="panel glyphicon glyphicon-chevron-right"><a style="margin-left: 10px;color: #475669">留言编写</a></div>
+            <div class="panel glyphicon glyphicon-chevron-right panel_list"><a href="javascript#;" style="margin-left: 10px;color: #475669">日志编写</a></div>
+            <div class="panel glyphicon glyphicon-chevron-right panel_list"><a href="javascript#;" style="margin-left: 10px;color: #475669">留言编写</a></div>
 
         </div>
     </div>

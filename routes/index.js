@@ -148,6 +148,12 @@ router.get('/comment', function(req, res) {
   res.render('comment');
 });
 
+
+router.get('/production', function(req, res) {
+
+  res.render('production');
+});
+
 //初始页
 router.get('/*', function(req, res) {
   //res.redirect('/');

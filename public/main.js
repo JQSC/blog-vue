@@ -22,8 +22,6 @@ import Autocomplete from '../node_modules/element-ui/lib/autocomplete.js';
 
 import App from './components/App.vue';
 
-
-
 Vue.use(Switch)
 Vue.use(Badge)
 Vue.use(Loading)
@@ -31,15 +29,12 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Autocomplete)
 
-
 Vue.use(VueResource)
 Vue.use(VueRouter);
 
-
 import blogIndex from './components/blog/blogIndex.vue'
 import searchArcitle from './components/Article/searchArcitle.vue'
-//var blogIndex=""
-//var searchArcitle=""
+
 // 创建一个路由器实例
 // 并且配置路由规则
 const router = new VueRouter({

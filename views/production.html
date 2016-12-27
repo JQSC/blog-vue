@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>作品展示页</title>
+    <link href="http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js"></script>
+    <link href="/stylesheets/console.css" rel='stylesheet' type='text/css' />
+    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="/javascripts/vue.js"></script>
+</head>
+<body style="background: #f9f9f9 url(/images/page-bg-1.jpg);">
+
+
+
+<div style="background-color: black;height: 5px;"></div>
+<div style="background-color: #d8450b;height: 3px;margin-bottom: 40px"></div>
+
+
+
+<div class="container" style="text-align: center;margin-bottom: 50px" id="home">
+
+    <div>
+        <ul class="nav nav-pills" role="tablist" style="border-bottom: 1px dotted #a9a9a9" >
+            <li><img style="height: 42px" class="" src="/images/logo-new2.png"></li>
+            <li class="nav_text">作品展示页</li>
+            <li role="presentation" class="active"><a href="blog">首页</a></li>
+            <li role="presentation"><a href="#">留言</a></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    跳转 <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#container">轮播</a></li>
+                    <li><a href="#zp">作品</a></li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
+<!-- 轮播（Carousel）项目 -->
+<div class="container" id="container">
+    <div class="row">
+        <div class="col-md-7">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="carousel_img" src="/images/zp-browser.png" alt="11">
+                    <div class="carousel-caption">
+                        游览器介绍页面
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="carousel_img" src="/images/zp-blog.png" alt="...">
+                    <div class="carousel-caption">
+                        博客
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="carousel_img" src="/images/zp-2048.png" alt="...">
+                    <div class="carousel-caption">
+                        2048小游戏
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="carousel_img" src="/images/zp-zm.png" alt="...">
+                    <div class="carousel-caption">
+                        祖玛小游戏
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        </div>
+        <div class="col-md-5" style="height:364px;">
+            <div style="margin: 10px;height:364px;">
+                <p style="height: 30%;font:24px bold;padding: 10px">bootstrap学习---游览器介绍页面</p>
+                <p style="height: 40%;padding: 10px">利用bootstrap框架;</p>
+                <p style="padding: 10px"><span>关键字:</span>bootstrap</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-top: 30px">
+
+        <div style="padding: 10px;border-top: 1px dotted #a9a9a9;border-bottom: 1px dotted #a9a9a9">
+
+            <span>作品展示</span>
+           
+        </div>
+
+</div>
+
+<div class="container" id="zp">
+
+    <ul class="zp_list">
+        <li>
+            <a href="http://chisir.top/" target="_blank" >
+              <img src="/images/zp-blog.png">
+            </a>
+            <p>博客</p>
+            <p>代码地址:</p><p><a href="javascript:;">https://github.com/JQSC/blog-vue</a></p>
+        </li>
+        <li>
+            <a href=" http://sandbox.runjs.cn/show/vfvilr2e" target="_blank" >
+            <img src="/images/zp-browser.png">
+            </a>
+            <p>游览器介绍</p>
+            <p>代码地址:</p><p><a href="javascript:;">http://sandbox.runjs.cn/show/vfvilr2e</a></p>
+        </li>
+        <li>
+            <a href=" http://sandbox.runjs.cn/show/ct2g7fyr" target="_blank" >
+              <img src="/images/zp-2048.png">
+            </a>
+            <p>2048小游戏</p>
+            <p>代码地址:</p><p><a href="javascript:;">http://sandbox.runjs.cn/show/ct2g7fyr</a></p>
+        </li>
+        <li>
+            <a href=" http://sandbox.runjs.cn/show/eudqzizp" target="_blank" >
+            <img src="/images/zp-zm.png">
+             </a>
+            <p>祖玛小游戏</p>
+            <p>代码地址:</p><p><a href="javascript:;">http://sandbox.runjs.cn/show/eudqzizp</a></p>
+        </li>
+
+    </ul>
+</div>
+
+<div class="footer1_bg"><!-- start footer1 -->
+    <div class="container">
+        <div class="row  footer">
+            <div class="copy text-center">
+                <p class="link"><span>Copyright &copy; 2016.Csqblog 联系我:122377305@qq.com.<a target="_blank" href="http://www.huiyi8.com/moban/">github</a></span></p>
+                <a href="#home" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"> </span></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
