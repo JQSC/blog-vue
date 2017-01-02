@@ -8,13 +8,13 @@
     <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js"></script>
     <script type="text/javascript" src="http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js"></script>
     <link href="/stylesheets/console.css" rel='stylesheet' type='text/css' />
-    <link href="/stylesheets/style.css" rel="stylesheet" type="text/css" media="all" />
     <script src="/javascripts/vue.js"></script>
+    <script src="/javascripts/dialog.js"></script>
 </head>
 <body style="background: #f9f9f9 url(/images/page-bg-1.jpg);">
 
 
-
+<div id="production">
 <div style="background-color: black;height: 5px;"></div>
 <div style="background-color: #d8450b;height: 3px;margin-bottom: 40px"></div>
 
@@ -23,7 +23,8 @@
 <div class="container" style="text-align: center;margin-bottom: 50px" id="home">
 
     <div>
-        <ul class="nav nav-pills" role="tablist" style="border-bottom: 1px dotted #a9a9a9" >
+        <ul class="nav nav-pills" role="tablist"
+            style="border-bottom: 1px dotted #a9a9a9;padding-bottom: 10px" >
             <li><img style="height: 42px" class="" src="/images/logo-new2.png"></li>
             <li class="nav_text">作品展示页</li>
             <li role="presentation" class="active"><a href="blog">首页</a></li>
@@ -33,7 +34,7 @@
                     跳转 <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#container">轮播</a></li>
+                    <li><a href="https://jqsc.github.io/practice/index.html" target="_blank">各种小练习</a></li>
                     <li><a href="#zp">作品</a></li>
                 </ul>
             </li>
@@ -43,7 +44,7 @@
     </div>
 </div>
 <!-- 轮播（Carousel）项目 -->
-<div class="container" id="container">
+<div class="container">
     <div class="row">
         <div class="col-md-7">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -96,11 +97,17 @@
         </div>
         </div>
         <div class="col-md-5" style="height:364px;">
-            <div style="margin: 10px;height:364px;">
-                <p style="height: 30%;font:24px bold;padding: 10px">bootstrap学习---游览器介绍页面</p>
-                <p style="height: 40%;padding: 10px">利用bootstrap框架;</p>
-                <p style="padding: 10px"><span>关键字:</span>bootstrap</p>
-            </div>
+            <h3>作品说明:</h3>
+            <p style="text-indent: 20px">下面的一些内容都是博主工作闲余时间学习过后为巩固知识做的各个练习。</p>
+            <p style="text-indent: 20px">由于工作原因，本人大部分工作内容都是在写后台服务、做接口。
+                偶尔做些查询界面也是用公司的组件编辑器和ext。出于对js的热情,
+                特别期望能学到一些更高层次的js编写方式，随而从基础开始看书、看视频、逛各种论坛。
+                从最初的js基础到dom操作，从面向过程到面向对象、在到用seajs进行模块化开发。
+                很多内容来回学习了好几遍,对于js自我感觉刚刚入门,以后的时间会继续的学习下去。加油~自己！
+            </p>
+            <button style="margin-top: 30px;" type="button" class="btn btn-danger" id="sPractice">
+                <a href="https://jqsc.github.io/practice/index.html" target="_blank" style="list-style: none;color: white;">各种小练习</a>
+            </button>
         </div>
     </div>
 </div>
@@ -108,7 +115,7 @@
 
         <div style="padding: 10px;border-top: 1px dotted #a9a9a9;border-bottom: 1px dotted #a9a9a9">
 
-            <span>作品展示</span>
+            <h3>作品展示</h3>
            
         </div>
 
@@ -159,5 +166,7 @@
         </div>
     </div>
 </div>
+</div>
 </body>
+
 </html>

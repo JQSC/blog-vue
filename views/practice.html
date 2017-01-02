@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>小练习集合</title>
+    <script src="../public/javascripts/vue.js"></script>
+    <style>
+        body,ol,li,a{
+            font-family: "Microsoft YaHei",Arial, Verdana, sans-serif
+        }
+        #practice{
+            width: 50%;
+            border: 1px solid #d3d4d6;
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        #practice ol{
+            margin: 40px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #practice ol li{
+            padding: 20px;
+            border-bottom: 1px solid #d3d4d6;
+        }
+        #practice ol li a:hover{
+            background-color: #13ce66;
+            border-radius: 4px;
+            color: white;
+           text-indent: 20px;
+            transition: all 0.6s;
+        }
+        #practice ol li a{
+            display: block;
+            list-style: none;
+            padding: 15px 8px;
+
+            text-decoration:none;
+            font-size: 22px;
+            font-weight:bold;
+            color:#1d8ce0;
+            letter-spacing:2px;
+        }
+
+
+        #practice ol li dl{
+            margin: 0;padding: 0;
+
+        }
+        #practice ol li dl dd a{
+            display: block;
+            list-style: none;
+            padding: 15px 8px;
+            text-decoration:none;
+            font-size: 22px;
+            font-weight: normal;
+            color:#20a0ff;
+            letter-spacing:2px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="practice">
+    <ol>
+        <li v-for="item in items">
+            <a href="javascript:;" @click="item.show=!item.show">{{item.text}}</a>
+            <dl v-show="item.show">
+                <dd  v-for="itemChild in item.itemChild">
+                    <a href="{{itemChild.href}}" target="_blank">{{itemChild.text}}</a>
+                </dd>
+            </dl>
+        </li>
+    </ol>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#practice',
+        data:{
+            items:[
+                {text:"第一章 js基础",show:false,
+                    itemChild:[
+                        {text:"全屏相册",href:'https://jqsc.github.io/practice/js/demo.html'},
+                        {text:"3D立体相册",href:'https://jqsc.github.io/practice/js/imgNew.html'},
+                        {text:"QQ列表",href:'https://jqsc.github.io/practice/js/QQ列表.html'},
+                        {text:"修改文本框内容",href:'https://jqsc.github.io/practice/js/修改文本框值.html'},
+                        {text:"改变大小宽度",href:'https://jqsc.github.io/practice/js/改变大小宽度.html'}
+
+                    ]
+                },
+                {text:"第二章 HTML5",show:false,
+                    itemChild:[
+                        {text:"canvas画图",href:'https://jqsc.github.io/practice/html5/canvas_paint.html'},
+                        {text:"canvas时钟",href:'https://jqsc.github.io/practice/html5/canvas_clock.html'},
+                        {text:"html5表单控件",href:'https://jqsc.github.io/practice/html5/表单控件.html'},
+                        {text:"html5风车",href:'https://jqsc.github.io/practice/html5/风车.html'}
+                       ]
+
+                },
+                {text:"第三章 DOM",show:false,
+                    itemChild:[
+                        {text:"百度音乐全选操作",href:'https://jqsc.github.io/practice/dom/百度音乐全选操作.html'},
+                        {text:"滚动条",href:'https://jqsc.github.io/practice/dom/滚动条.html'}
+
+                    ]
+                },
+                {text:"第四章 from",show:false,
+                    itemChild:[
+                        {text:"表单1",href:'https://jqsc.github.io/practice/from/表单.html'},
+                        {text:"表单2",href:'https://jqsc.github.io/practice/dom/表单练习.html'}
+
+                    ]
+                },
+                {text:"第五章 other",show:false,
+                    itemChild:[
+                        {text:"echars练习",href:'https://jqsc.github.io/practice/other/echarts练习.html'},
+                        {text:"慕课网-css练习",href:'https://jqsc.github.io/practice/css/muke.html'}
+
+                    ]
+                }
+
+            ]
+        }
+    })
+</script>
+</html>
