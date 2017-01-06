@@ -1,6 +1,6 @@
 <template>
     <div id="about">
-        <div class="col-md-8" style="background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0;">
+        <div class="col-md-8 about_left">
              <h3 class="h3">关于本站</h3>
 
             <div style="float: left;padding: 20px 20px 10px 20px">
@@ -14,7 +14,6 @@
                     服务器为Windows Server 2012 R2版腾讯云主机，域名chisir.top购自阿里万维网。
                 </div>
             </div>
-
              <div style="clear: both"></div>
              <hr>
              <h4>初衷</h4>
@@ -29,7 +28,7 @@
             <p>github:<a href="https://github.com/JQSC" target="_blank">https://github.com/JQSC</a></p>
             <hr>
             <h4>一句箴言</h4>
-            <p style="background-color: rgb(239,236,238);padding: 10px;margin-right: 20px;border-radius: 5px;margin-bottom: 20px">宁可在骄阳里暴晒,也不愿在黑暗里偷生。</p>
+            <p class="proverbs">宁可在骄阳里暴晒,也不愿在黑暗里偷生。</p>
         </div>
     </div>
 </template>
@@ -51,6 +50,14 @@
        border-radius: 10px;
 
    }
+    .proverbs{
+        background-color: rgb(239,236,238);
+        padding: 10px;margin-right: 20px;
+        border-radius: 5px;margin-bottom: 20px
+    }
+    .about_left{
+        background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0;
+    }
 </style>
 <script>
 

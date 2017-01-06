@@ -52,7 +52,6 @@
 
             <nav class="top-nav">
                 <ul class="top-nav nav_list">
-
                     <!--<li><a><img src="/images/logo1.png"></a></li>-->
                     <li><a><img style="height: 42px" src="/images/logo-new2.png"></a></li>
                     <!--<li><a href="#">文件类型 <span class="sr-only">(current)</span></a></li>-->
@@ -78,7 +77,6 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>
 <div class="blog" style="background: rgb(238,238,238)"><!-- start main -->
@@ -185,11 +183,6 @@
             });
         </script>
         <!---- start-smoth-scrolling---->
-
-
-
-
-
     </div>
 </div>
 
@@ -206,7 +199,7 @@
           var arr = [];
            arr.push(UE.getEditor('editor').getContent());   //内容
             textname.innerHTML=arr.join("\n")
-        }
+        };
         ///双击时触发
         oInsert.onclick=function(){
             var arrnew = [];
@@ -214,9 +207,7 @@
             contentTxt.value=arrnew.join("\n")
             document.form.submit()
 
-        }
-
-
+        };
         function escape2Html(str) {
             var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'};
             return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];});

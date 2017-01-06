@@ -60,19 +60,6 @@ var MessageFind=new Promise(function(resolve,reject){
   })
 });
 
-/*var requestOpt=new Promise(function(resolve,reject){
-  return request({}, function (err, res, string) {
-    if(!err){
-    resolve(string)
-    }else{
-      reject(err)
-    }
-  })
-});*/
-
-
-
-
 function findById(id){
   return new Promise(function(resolve,reject){
     user.findById(id,function(err,text){
@@ -139,6 +126,10 @@ router.get('/note', function(req, res) {
 
   res.render('note');
 });
+router.get('/log', function(req, res) {
+
+  res.render('editLog');
+});
 router.get('/article', function(req, res) {
 
   res.render('article');
@@ -160,11 +151,7 @@ router.get('/*', function(req, res) {
   //throw new Error('NOPE！')
   res.render('vue',{fortun:'aaa',pageTestScript:'/qa/test-about.js'});
 });
-/*router.get('/!*', function(req, res) {
-  process.nextTick(function(){
-    throw new Error('NOPE！')
-  })
-});*/
+
 
 
 module.exports = router;

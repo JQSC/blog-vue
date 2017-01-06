@@ -59,5 +59,9 @@
   }
 </script>
 
-<style  >
+<style>
+  .nav_list li a{
+    font-size: 15px;
+
+  }
 </style>

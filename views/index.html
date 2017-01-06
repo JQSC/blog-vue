@@ -47,8 +47,12 @@
             <h3 class="panel-title glyphicon glyphicon-edit"><span style="margin-left: 10px">编辑排版</span></h3>
         </div>
         <div class="panel-body">
-            <div class="panel glyphicon glyphicon-chevron-right panel_list"><a href="javascript#;" style="margin-left: 10px;color: #475669">日志编写</a></div>
-            <div class="panel glyphicon glyphicon-chevron-right panel_list"><a href="javascript#;" style="margin-left: 10px;color: #475669">留言编写</a></div>
+            <div class="panel glyphicon glyphicon-chevron-right panel_list">
+                <a href="log" target="content" style="margin-left: 10px;color: #475669">日志编写</a>
+            </div>
+            <div class="panel glyphicon glyphicon-chevron-right panel_list">
+                <a href="log"  target="content"style="margin-left: 10px;color: #475669">留言编写</a>
+            </div>
 
         </div>
     </div>
@@ -69,10 +73,12 @@
         var app = new Vue({
             el: '#app',
             data: {
-                items:[{title:'网站设置',href:'info.html'},
+                items:[
+                    {title:'网站设置',href:'info.html'},
                     {title:'文章管理',href:'article'},
                     {title:'留言管理',href:'note'},
-                    {title:'评论管理',href:'comment'}],
+                    {title:'评论管理',href:'comment'}
+                ],
                 message: 'Hello Vue!',
                 title:'文章管理'
             },
