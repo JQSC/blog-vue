@@ -37,14 +37,17 @@ app.use(compress()); */
 
 app.use(favicon(__dirname + '/public/images/icon-logo.jpg'));
 
-var accessLog = fs.createWriteStream(__dirname+'/log/request.log', {flags : 'a'});
+app.use(logger('dev'));
+
+/*var accessLog = fs.createWriteStream(__dirname+'/log/request.log', {flags : 'a'});
+
 switch(app.get('env')){
   case 'development':
     app.use(logger('dev'));
     break;
   case 'production':
     app.use(logger('combined', {stream : accessLog}))
-}
+}*/
 
 //app.use(logger('dev'));   //服务器日志  ;预定义格式 short tiny (dev 输出简洁日志)
 

@@ -1,6 +1,4 @@
 *.[oa]
 *~
 node_modules
-dist
 ueditor
-log
