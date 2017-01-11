@@ -32,21 +32,20 @@ function articleUpdate(id,text){
 
 //跳转文章页
 router.post('/GetArticleContent', function(req, res) {
-  var id=req.body.articleId
-  //console.log(id)
+
+  var id=req.body.articleId;
   findById(id)
       .then(function(text){
         return articleUpdate(id,text)
-      }).then(function(list){
-    var titleNew=list.title;
-    var contentNew=list.content;
-    var keyword=list.keyword.toUpperCase();
-    var comment={
-      title:titleNew, content:contentNew, commentId:id ,keyword:keyword};
-    res.json(comment)
-  })
+      })
+      .then(function(list){
+        var titleNew=list.title;
+        var contentNew=list.content;
+        var keyword=list.keyword.toUpperCase();
+        var comment={title:titleNew, content:contentNew, commentId:id ,keyword:keyword};
+        res.json(comment)
+      })
 });
-
 
 //控制台路由配置
 router.get('/*', function(req, res) {
