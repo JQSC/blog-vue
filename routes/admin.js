@@ -5,22 +5,14 @@ var user=db.user;
 var fs=require('fs')
 /* GET users listing. */
 router.get('/', function(req, res) {
-
-  var data = [];
-   /* fs.readdir('./public/file', function (ev2, fill) {
-    fill.forEach(function (fz) {
-      data.push(fz)
-    });*/
-    var arr=[];
-    console.log(arr)
-    res.render('index', { user:arr[0] ,data:data,name:arr[2],password:arr[1],email:arr[3]});
-
+    res.render('index');
 });
 
 
 router.post('/savelog', function(req, res) {
-  // console.log(req.body);
+
   //保存日志主题及其内容
+
   var NowDate=new Date()
   var textAll= new user({
     title: req.body.title,

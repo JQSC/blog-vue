@@ -76,7 +76,6 @@ router.post('/deleteNote',function(req,res){
 //获取文章内容
 router.post('/getContentMain',function(req,res){
 
-    //console.log("111111")
     var search={};
     //查看哪页
     /*
@@ -89,6 +88,7 @@ router.post('/getContentMain',function(req,res){
     var page={limit:req.body.limit,num:req.body.num};
     var model = {
         search:search,    //查询条件
+
         //数据返回字段
         columns:{
             title:1,
@@ -96,9 +96,9 @@ router.post('/getContentMain',function(req,res){
             contentTxt:1,
             day:1,            //日期
             comment:1,       // 评论数量
-            readNum:1,       // 阅读量
-            author:1,        //作者
-            praise:1,         //点赞数量
+            readNum:1,      // 阅读量
+            author:1,      //作者
+            praise:1,     //点赞数量
             keyword:1
         },
         page:page,
@@ -138,40 +138,25 @@ router.get('/getArticleList',function(req,res) {
 //获取评论
 router.post('/GetComment', function(req, res) {
     var searchId = req.body.articleId;
-    //console.log(searchId)
     comments.find({articleId:searchId},function(err,article) {
         if (!err) {
             var listComment = {
                 articleNum:article.length,article:article
             };
-            //console.log(listComment)
             res.json(listComment)
         }
     })
 });
 
-
-
 var marked = require('marked');
 var fs = require('fs');
-
-/* GET home page. */
-router.get('/aaa',function(req, res, next) {
-    fs.readFile('./marked.md', 'utf-8',function(err, data) {
-        var html = marked(data);
-        ///console.log(html)
-        res.render('marker',{text:html})
-    })
-
-});
-
 
 //留言
 router.post('/LeMessage', function(req, res) {
 
     var NowDate=new Date();
     messages.count(function (err, doc) {
-        console.log("开始"+doc);
+        //console.log("start"+doc);
         var messagesAll = new messages({
             nickname: req.body.nickname,
             email: req.body.email,
@@ -179,28 +164,25 @@ router.post('/LeMessage', function(req, res) {
             day: NowDate.toLocaleDateString() + "  " + NowDate.toLocaleTimeString(),
             floor: doc + 1
         });
-        console.log("结束")
-        //messagesAll.save();
+        messagesAll.save();
         res.json({success:"留言成功!!"})
     })
 });
+
 //点赞
 router.get('/praise', function(req, res) {
     var id=url.parse(req.url).query
     //查找操作
     user.findById({_id:id},function(err,text){
-        //var titleNew=text.title
-        //var contentNew=text.content;
-        //var readNumNew=text.readNum+1;
         var praise=text.praise+1
         //更新操作
         user.update({_id:id},{ praise:praise},  function (err) {
             if (err) return handleError(err);
-            res.jsonp("OK!");
-            //res.redirect('/')
+            res.json({success:"OK!"});
         });
     });
 });
+
 //评论
 router.post('/search/:id/commit', function(req, res) {
 
@@ -244,10 +226,10 @@ router.post('/SendEmail',function(req,res){
     };
     nodeMailer.SendMail(contentList,function(err,info){
         if(err){
-            res.json({success:''});
+            res.json({success:'error!'});
             console.log(err)
         } else{
-            res.json({success:"OK!!"});
+            res.json({success:"OK!"});
             console.log("邮件发送成功!!")
         }
     });
