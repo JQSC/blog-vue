@@ -48,7 +48,7 @@ router.post('/GetArticleContent', function(req, res) {
 });
 
 
-//路由配置
+//控制台路由配置
 router.get('/*', function(req, res) {
 
    switch(req.params[0]){
