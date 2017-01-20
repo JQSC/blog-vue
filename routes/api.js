@@ -252,9 +252,9 @@ router.post('/uploadFile',function(req,res){
         })
     }
     catch (err){
-        console.error("上传文件出现异常错误!"+err.stack)
-        res.status=500
-        res.setHeader('content-type','text/plain')
+        console.error("上传文件出现异常错误!"+err.stack);
+        res.status=500;
+        res.setHeader('content-type','text/plain');
         res.end('Server error')
     }
 
