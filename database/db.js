@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 //var db = mongoose.connect('mongodb://localhost/csq');//；连接数据库
 
-var db = mongoose.connect('mongodb://vueblog:chi123@ds035836.mlab.com:35836/chiblog');//；连接数据
+var db = mongoose.connect('mongodb://haibo:123@ds035836.mlab.com:35836/chiblog');//；连接数据
 
     db.connection.on('error',console.error.bind(console,'数据库连接错误!!!!!!!!'));
     db.connection.on('open',function(){

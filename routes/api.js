@@ -24,6 +24,7 @@ var options={
 router.get('/GetWeather', function(req, res) {
     request(options, function (err, response, string) {
         if (!err) {
+            console.log(string)
             var jsonStr = eval('(' + string + ')') ;
             res.json(jsonStr)
         } else {
@@ -179,8 +180,8 @@ router.post('/LeMessage', function(req, res) {
             day: NowDate.toLocaleDateString() + "  " + NowDate.toLocaleTimeString(),
             floor: doc + 1
         });
-        console.log("结束")
-        //messagesAll.save();
+        //console.log("结束")
+        messagesAll.save();
         res.json({success:"留言成功!!"})
     })
 });
