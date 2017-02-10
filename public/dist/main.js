@@ -4749,7 +4749,7 @@ webpackJsonp([0],[
 	                this.pageItems[pagCount - 1].IsActive = true;
 	                this.loading = false;
 	                this.contentMains = res.data.list;
-	                console.log(res.data.list);
+	                //console.log(res.data.list)
 	            }, function (res) {
 	                console.log(res);
 	            });
@@ -5003,8 +5003,13 @@ webpackJsonp([0],[
 	    methods: {
 	        GetWeatherInfo: function GetWeatherInfo() {
 	            this.$http.get('/api/GetWeather').then(function (response) {
-	                this.text = response.data.results[0].now.text;
-	                this.temperature = response.data.results[0].now.temperature;
+	                if (response.data.results) {
+	                    this.text = response.data.results[0].now.text;
+	                    this.temperature = response.data.results[0].now.temperature;
+	                } else {
+	                    this.text = '';
+	                    this.temperature = '';
+	                }
 	            }, function (response) {
 	                console.log(response);
 	            });

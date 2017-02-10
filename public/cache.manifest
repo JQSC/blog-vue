@@ -1,0 +1,21 @@
+CACHE MANIFEST
+#v1.0
+
+CACHE:
+/dist/main.js
+/dist/vendor.js
+/stylesheets/style.css
+/fonts/css/font-awesome.min.css
+/stylesheets/iconfont.css
+/images/me.jpg
+vue.html
+http://ohsmsw5ly.bkt.clouddn.com/css/index.css
+http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css
+http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js
+http://ohsmsw5ly.bkt.clouddn.com/js/bootstrap.min.js
+
+#NETWORK:其后列出的是不进行缓存的内容，每次都需要从服务器端获取
+NETWORK:
+*
+
+

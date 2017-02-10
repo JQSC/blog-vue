@@ -126,7 +126,7 @@
                     this.pageItems[pagCount-1].IsActive=true;
                     this.loading=false;
                     this.contentMains=res.data.list
-                    console.log(res.data.list)
+                    //console.log(res.data.list)
                 },function(res){
                     console.log(res)
                 })

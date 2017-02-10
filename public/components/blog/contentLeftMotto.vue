@@ -28,8 +28,13 @@
         methods:{
             GetWeatherInfo:function(){
                 this.$http.get('/api/GetWeather').then( function(response) {
-                    this.text=response.data.results[0].now.text;
-                    this.temperature=response.data.results[0].now.temperature;
+                    if(response.data.results){
+                        this.text=response.data.results[0].now.text;
+                        this.temperature=response.data.results[0].now.temperature;
+                    }else{
+                        this.text='';
+                        this.temperature='';
+                    }
                 }, function (response) {
                     console.log(response)
                 })
