@@ -20,7 +20,7 @@
         .hide {
             position: absolute;
             z-index: -100;
-            visibility: hidden;
+            visibility: hidden;  /*元素隐藏却占用位置*/
         }
         .btn{
             color: #fff;
@@ -43,10 +43,17 @@
     </style>
 </head>
 <body>
-<div class="textarea" id="writeText">
-    <pre class="input hide" id="pre"></pre>
-    <textarea class="input" id="textarea"></textarea>
 
+
+<div class="textarea" id="writeText">
+
+    <p style="padding: 10px" >文章标题:<input type="text" id="title"> </p>
+    <p style="padding: 10px" >关键字：<input type="text" id="keyword"></p>
+    <!--pre标签可以转换特殊符号 譬如空格回车-->
+    <pre class="input hide" id="pre"></pre>
+    <!--将textarea的内容替换到pre标签里，得到高度，在将pre的高度赋给textarea标签达到扩充宽度的目的-->
+    <textarea class="input" id="textarea"></textarea>
+    <!--预览按钮-->
     <p>
         <button style="margin-top: 30px;" type="button" class="btn" id="Preview">
             <a href="javascript:;" target="_blank" style="list-style: none;color: white;text-decoration:none;">预览</a>
@@ -54,43 +61,82 @@
     </p>
 </div>
 
-<div id="mark" class="markdown-body">
 
+<!--用于预览-->
+<div style="display: none" id="view">
+    <!--显示markdown语法转化后的内容-->
+    <div id="mark" class="markdown-body">
+    </div>
+
+    <!--关闭按钮-->
+    <p>
+        <button style="margin-top: 30px;" type="button" class="btn" id="close">
+            <a href="javascript:;" target="_blank" style="list-style: none;color: white;text-decoration:none;">关闭</a>
+        </button>
+        <button style="margin-top: 30px;" type="button" class="btn" id="submit">
+            <a href="javascript:;" target="_blank" style="list-style: none;color: white;text-decoration:none;">提交</a>
+        </button>
+    </p>
 
 </div>
-<p id="close" style="display: none">
-    <button style="margin-top: 30px;" type="button" class="btn">
-        <a href="javascript:;" target="_blank" style="list-style: none;color: white;text-decoration:none;">关闭</a>
-    </button>
-</p>
 <script>
+    var textarea,oWriteText,pre,oPreview,oMark,oClose,oView,oSubmit;
     /*另外找一个元素，和textarea设置一样的样式，当textarea输入的时候，
      将内容填充到该元素内，然后再将该元素的高度赋值给textarea。*/
-    var textarea = document.getElementById('textarea');
-    var oWriteText = document.getElementById('writeText');
-    var pre = document.getElementById('pre');
-
+     textarea = document.getElementById('textarea');
+     pre = document.getElementById('pre');
+    //textarea中内容发生改变的时候开始对应取文本框高度
     textarea.oninput = function() {
         pre.textContent = textarea.value;
         textarea.style.height = pre.offsetHeight + 'px';
-    }
+    };
 
-    var oPreview=document.getElementById('Preview')
-    var oMark=document.getElementById('mark')
-    var oClose=document.getElementById('close')
+    //预览
+    oPreview=document.getElementById('Preview');
+    oMark=document.getElementById('mark');
     oPreview.onclick=function(){
         var html=marked(textarea.value);
-        oMark.style.display=''
-        oWriteText.style.display='none';
+        change();
         oMark.innerHTML=html
-        oClose.style.display=''
+    };
 
-    }
     //关闭
+    oClose=document.getElementById('close');
     oClose.onclick=function(){
-        oClose.style.display='none'
-        oWriteText.style.display=''
-        oMark.style.display='none'
+        change()
+    };
+    //提交
+    oSubmit=document.getElementById('submit');
+    oSubmit.onclick=function(){
+        oMark.innerHTML="<h3>提交成功!</h3>";
+        var xhr=new XMLHttpRequest();
+        xhr.open('POST','http://localhost:8080/admin/saveLogNew',true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); // 发送信息至服务器时内容编码类型
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 304)) {  // 304未修改
+                alert("提交成功")
+                change()
+            }
+        };
+        var title=document.getElementById('title')
+        var keyword=document.getElementById('keyword');
+        var contentTxt=textarea.value;
+        var str="title="+title.value+"&keyword="+keyword.value+"&contentTxt="+contentTxt;
+        xhr.send(str);
+    };
+
+
+
+    function change(){
+        oWriteText = document.getElementById('writeText');
+        oView=document.getElementById('view');
+        if(oWriteText.style.display!='none'){
+            oWriteText.style.display='none';
+            oView.style.display=''
+        }else{
+            oWriteText.style.display='';
+            oView.style.display='none'
+        }
     }
 </script>
 </body>

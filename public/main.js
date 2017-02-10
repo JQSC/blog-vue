@@ -22,14 +22,14 @@ import Autocomplete from '../node_modules/element-ui/lib/autocomplete.js';
 
 import App from './components/App.vue';
 
-Vue.use(Switch)
-Vue.use(Badge)
-Vue.use(Loading)
-Vue.use(Row)
-Vue.use(Col)
-Vue.use(Autocomplete)
+Vue.use(Switch);
+Vue.use(Badge);
+Vue.use(Loading);
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Autocomplete);
 
-Vue.use(VueResource)
+Vue.use(VueResource);
 Vue.use(VueRouter);
 
 import blogIndex from './components/blog/blogIndex.vue'
@@ -59,10 +59,10 @@ const router = new VueRouter({
             component: searchArcitle
         }
     ]
-})
+});
 Vue.config.debug = true;//开启错误提示
 
 new Vue({
     router: router,
     render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');

@@ -7,8 +7,8 @@ module.exports = {
     vendor: [
         './node_modules/element-ui/lib/loading.js',
         './node_modules/element-ui/lib/autocomplete.js',
-      './node_modules/element-ui/lib/switch.js',
-    './node_modules/element-ui/lib/badge.js']
+        './node_modules/element-ui/lib/switch.js',
+        './node_modules/element-ui/lib/badge.js']
   },
   output: {
     path: path.join(__dirname, './public/dist'),
@@ -44,7 +44,7 @@ module.exports = {
     ]
   },
   plugins: [
-   new webpack.optimize.CommonsChunkPlugin('vendor',  'vendor.js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor',  'vendor.js'),
     new webpack.BannerPlugin("Copyright Flying Unicorns inc.")//在这个数组中new一个就可以了
   ],
   resolve: {

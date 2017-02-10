@@ -13,23 +13,24 @@ var messages=db.messages;
 
 ///获取天气详细情况
 var options={
-    //uri: 'http://apis.baidu.com/apistore/weatherservice/cityid?cityid=101010100',
-    uri: 'http://apis.baidu.com/thinkpage/weather_api/currentweather?location=beijing&language=zh-Hans&unit=c',
+    uri: 'http://api.avatardata.cn/WeatherAdv/Query?key=ec8bd565b64ac8fb745c476158723bf4&city=shanghai&unit=c&aqi=all'
+  /*  uri: 'http://apis.baidu.com/thinkpage/weather_api/currentweather?location=beijing&language=zh-Hans&unit=c',
     headers: {
         'apikey':"ec8bd565b64ac8fb745c476158723bf4"
-    }
+    }*/
 };
 
 //获取天气内容
 router.get('/GetWeather', function(req, res) {
-    request(options, function (err, response, string) {
+    res.json({});
+    /*request(options, function (err, response, string) {
         if (!err) {
             var jsonStr = eval('(' + string + ')') ;
             res.json(jsonStr)
         } else {
             console.log(err)
         }
-    })
+    })*/
 });
 
 
@@ -55,7 +56,6 @@ router.post('/GetNote',function(req,res){
     };
     messages.findPagNote(modelMessage,function(err, pageCount, list){
         if(!err){
-           // console.log(list)
             var listPage={
                 list:list,
                 pageCount:pageCount
@@ -72,7 +72,7 @@ router.post('/deleteNote',function(req,res){
         if (err) return handleError(err);
         res.json({success:'OK!'});
     });
-})
+});
 //获取文章内容
 router.post('/getContentMain',function(req,res){
 
@@ -132,7 +132,7 @@ router.get('/getArticleList',function(req,res) {
         }
 
     })
-})
+});
 
 
 //获取评论
@@ -239,10 +239,10 @@ router.post('/SendEmail',function(req,res){
 //文件上传;并将其存储到七牛云平台
 router.post('/uploadFile',function(req,res){
 
-    var uploadFile=require('../lib/fileQiNiu.js')
-    filePath = './public/main.js';
-    nameSpace = 'blog';
-    fileName = 'my-nodejs-test.js';
+    var uploadFile=require('../lib/fileQiNiu.js'),
+        filePath = './public/main.js',
+        nameSpace = 'blog',
+        fileName = 'my-nodejs-test.js';
     try {
         uploadFile.uploadFile(filePath,fileName,nameSpace,function(err,ret){
             if(!err){
