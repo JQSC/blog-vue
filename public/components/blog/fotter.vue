@@ -66,9 +66,9 @@
     .Success{
         background-color: #13CE66;
     }
-    .right{
-        position: relative ; float: right !important;
-    }
+    /*.right{*/
+        /*position: relative ; float: right !important;*/
+    /*}*/
     .form_waring{
         border:1px solid #FF4949!important;
     }

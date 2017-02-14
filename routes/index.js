@@ -64,9 +64,6 @@ router.get('/*', function(req, res) {
      case "comment":
        res.render('comment');
        break;
-     case "production":
-       res.render('production');
-       break;
      default:
        res.render('vue',{fortun:'aaa',pageTestScript:'/qa/test-about.js'});
        break;

@@ -35,6 +35,7 @@ Vue.use(VueRouter);
 import blogIndex from './components/blog/blogIndex.vue'
 import searchArcitle from './components/Article/searchArcitle.vue'
 import about from './components/about/about.vue'
+import production from './components/production/production.vue'
 
 // 创建一个路由器实例
 // 并且配置路由规则
@@ -49,6 +50,10 @@ const router = new VueRouter({
         {
             path: '/about',
             component: about
+        },
+        {
+            path: '/production',
+            component: production
         },
         {
             path: '/',

@@ -1,14 +1,14 @@
 CACHE MANIFEST
-#v2.0
+#v2.7
 
 CACHE:
-/dist/main.js
-/dist/vendor.js
+#/dist/main.js
+#/dist/vendor.js
 /stylesheets/style.css
 /fonts/css/font-awesome.min.css
 /stylesheets/iconfont.css
 /images/me.jpg
-vue.html
+#vue.html
 http://ohsmsw5ly.bkt.clouddn.com/css/index.css
 http://ohsmsw5ly.bkt.clouddn.com/css/bootstrap.min.css
 http://ohsmsw5ly.bkt.clouddn.com/js/jquery.min.js

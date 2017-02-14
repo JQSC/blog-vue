@@ -57,6 +57,10 @@ webpackJsonp([0],[
 
 	var _about2 = _interopRequireDefault(_about);
 
+	var _production = __webpack_require__(124);
+
+	var _production2 = _interopRequireDefault(_production);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	//es6语法：
@@ -92,6 +96,9 @@ webpackJsonp([0],[
 	    }, {
 	        path: '/about',
 	        component: _about2.default
+	    }, {
+	        path: '/production',
+	        component: _production2.default
 	    }, {
 	        path: '/',
 	        component: _blogIndex2.default
@@ -4338,7 +4345,7 @@ webpackJsonp([0],[
 	//               <ul class="top-nav nav_list">
 	//                 <!--<li><a><img src="/images/logo1.png"></a></li>-->
 	//                 <li><a><img style="height: 42px" src="/images/logo-new2.png"></a></li>
-	//                 <li><a href="production">作品 <span class="sr-only">(current)</span></a></li>
+	//                 <li class="page-scroll"><router-link to="/production">作品</router-link></li>
 	//                 <li class="page-scroll"><router-link to="/about">关于</router-link></li>
 	//                 <li class="logo page-scroll"><router-link to="/blog"><img src="/images/logo.png" alt="" class="responsive"/></router-link></li>
 	//                 <li class="page-scroll"><router-link to="/blog">博客</router-link></li>
@@ -4395,7 +4402,7 @@ webpackJsonp([0],[
 /* 22 */
 /***/ function(module, exports) {
 
-	module.exports = "\n  <div>\n    <div id=\"navigationBar\">\n      <div class=\"header_bg\" id=\"home\"><!-- start header -->\n        <div class=\"container\">\n          <div class=\"row text-center col-md-8\">\n            <nav class=\"top-nav\">\n              <ul class=\"top-nav nav_list\">\n                <!--<li><a><img src=\"/images/logo1.png\"></a></li>-->\n                <li><a><img style=\"height: 42px\" src=\"/images/logo-new2.png\"></a></li>\n                <li><a href=\"production\">作品 <span class=\"sr-only\">(current)</span></a></li>\n                <li class=\"page-scroll\"><router-link to=\"/about\">关于</router-link></li>\n                <li class=\"logo page-scroll\"><router-link to=\"/blog\"><img src=\"/images/logo.png\" alt=\"\" class=\"responsive\"/></router-link></li>\n                <li class=\"page-scroll\"><router-link to=\"/blog\">博客</router-link></li>\n                <li class=\"page-scroll\"><a href=\"#contact\">联系我</a></li>\n                <!--<li class=\"page-scroll\"><a style=\"color: rgb(50,50,50);\">联系我哦&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;池圣齐</a></li>-->\n              </ul>\n              <a href=\"#\" id=\"pull\"><img src=\"/images/nav-icon.png\" title=\"menu\" /></a>\n            </nav>\n            <div class=\"clearfix\"></div>\n          </div>\n          <div class=\"col-md-4 text-center\">\n            <div class=\"from_search\">\n              <form class=\"form-inline\" role=\"form\" action=\"\">\n                <div class=\"form-group\">\n                  <input type=\"text\" class=\"form-control\" placeholder=\"输入关键字\">\n                  <!--<button type=\"submit\" class=\"btn btn-default col-md-3\">查询</button>-->\n                  <input type=\"submit\" class=\"btn btn-default form-control\" value=\"查询\">\n                </div>\n              </form>\n            </div>\n          </div>\n\n        </div>\n      </div>\n    </div>\n    <!--博客-->\n    <router-view></router-view>\n  </div>\n";
+	module.exports = "\n  <div>\n    <div id=\"navigationBar\">\n      <div class=\"header_bg\" id=\"home\"><!-- start header -->\n        <div class=\"container\">\n          <div class=\"row text-center col-md-8\">\n            <nav class=\"top-nav\">\n              <ul class=\"top-nav nav_list\">\n                <!--<li><a><img src=\"/images/logo1.png\"></a></li>-->\n                <li><a><img style=\"height: 42px\" src=\"/images/logo-new2.png\"></a></li>\n                <li class=\"page-scroll\"><router-link to=\"/production\">作品</router-link></li>\n                <li class=\"page-scroll\"><router-link to=\"/about\">关于</router-link></li>\n                <li class=\"logo page-scroll\"><router-link to=\"/blog\"><img src=\"/images/logo.png\" alt=\"\" class=\"responsive\"/></router-link></li>\n                <li class=\"page-scroll\"><router-link to=\"/blog\">博客</router-link></li>\n                <li class=\"page-scroll\"><a href=\"#contact\">联系我</a></li>\n                <!--<li class=\"page-scroll\"><a style=\"color: rgb(50,50,50);\">联系我哦&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;池圣齐</a></li>-->\n              </ul>\n              <a href=\"#\" id=\"pull\"><img src=\"/images/nav-icon.png\" title=\"menu\" /></a>\n            </nav>\n            <div class=\"clearfix\"></div>\n          </div>\n          <div class=\"col-md-4 text-center\">\n            <div class=\"from_search\">\n              <form class=\"form-inline\" role=\"form\" action=\"\">\n                <div class=\"form-group\">\n                  <input type=\"text\" class=\"form-control\" placeholder=\"输入关键字\">\n                  <!--<button type=\"submit\" class=\"btn btn-default col-md-3\">查询</button>-->\n                  <input type=\"submit\" class=\"btn btn-default form-control\" value=\"查询\">\n                </div>\n              </form>\n            </div>\n          </div>\n\n        </div>\n      </div>\n    </div>\n    <!--博客-->\n    <router-view></router-view>\n  </div>\n";
 
 /***/ },
 /* 23 */
@@ -5963,7 +5970,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "\r\n    .slide-fade-enter-active {\r\n        -webkit-transition: all .8s ease;\r\n        transition: all .8s ease;\r\n    }\r\n    .slide-fade-leave-active {\r\n        -webkit-transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);\r\n        transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);\r\n    }\r\n    .slide-fade-enter, .slide-fade-leave-active {\r\n        padding-left: 10px;\r\n        opacity: 0;\r\n    }\r\n    .Danger{\r\n        background-color: #FF4949;\r\n    }\r\n    .Success{\r\n        background-color: #13CE66;\r\n    }\r\n    .right{\r\n        position: relative ; float: right !important;\r\n    }\r\n    .form_waring{\r\n        border:1px solid #FF4949!important;\r\n    }\r\n", ""]);
+	exports.push([module.id, "\r\n    .slide-fade-enter-active {\r\n        -webkit-transition: all .8s ease;\r\n        transition: all .8s ease;\r\n    }\r\n    .slide-fade-leave-active {\r\n        -webkit-transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);\r\n        transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);\r\n    }\r\n    .slide-fade-enter, .slide-fade-leave-active {\r\n        padding-left: 10px;\r\n        opacity: 0;\r\n    }\r\n    .Danger{\r\n        background-color: #FF4949;\r\n    }\r\n    .Success{\r\n        background-color: #13CE66;\r\n    }\r\n    /*.right{*/\r\n        /*position: relative ; float: right !important;*/\r\n    /*}*/\r\n    .form_waring{\r\n        border:1px solid #FF4949!important;\r\n    }\r\n", ""]);
 
 	// exports
 
@@ -6170,9 +6177,9 @@ webpackJsonp([0],[
 	//     .Success{
 	//         background-color: #13CE66;
 	//     }
-	//     .right{
-	//         position: relative ; float: right !important;
-	//     }
+	//     /*.right{*/
+	//         /*position: relative ; float: right !important;*/
+	//     /*}*/
 	//     .form_waring{
 	//         border:1px solid #FF4949!important;
 	//     }
@@ -7665,6 +7672,643 @@ webpackJsonp([0],[
 /***/ function(module, exports) {
 
 	module.exports = "\r\n    <div>\r\n        <contents></contents>\r\n        <fotter></fotter>\r\n        <fotter-end></fotter-end>\r\n    </div>\r\n";
+
+/***/ },
+/* 124 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(125)
+	__vue_script__ = __webpack_require__(127)
+	__vue_template__ = __webpack_require__(133)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "D:\\nodejs\\WebstormProjects\\blog-vue\\public\\components\\production\\production.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 125 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(126);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(20)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1c0b19ac&file=production.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-1c0b19ac&file=production.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 126 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(19)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 127 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _production_contents = __webpack_require__(128);
+
+	var _production_contents2 = _interopRequireDefault(_production_contents);
+
+	var _fotter = __webpack_require__(68);
+
+	var _fotter2 = _interopRequireDefault(_fotter);
+
+	var _fotterEnd = __webpack_require__(78);
+
+	var _fotterEnd2 = _interopRequireDefault(_fotterEnd);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    data: function data() {
+	        return {
+	            msg: 'hello vue'
+	        };
+	    },
+
+	    components: {
+	        contents: _production_contents2.default, fotter: _fotter2.default, 'fotter-end': _fotterEnd2.default
+	    }
+	};
+	// </script>
+	//
+	// <template>
+	//     <div>
+	//         <contents></contents>
+	//         <fotter></fotter>
+	//         <fotter-end></fotter-end>
+	//     </div>
+	// </template>
+	// <style>
+	//
+	// </style>
+	// <script>
+
+/***/ },
+/* 128 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(129)
+	__vue_script__ = __webpack_require__(131)
+	__vue_template__ = __webpack_require__(132)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "D:\\nodejs\\WebstormProjects\\blog-vue\\public\\components\\production\\production_contents.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 129 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(130);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(20)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6dfaa9fd&file=production_contents.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_contents.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6dfaa9fd&file=production_contents.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_contents.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(19)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _production_left = __webpack_require__(134);
+
+	var _production_left2 = _interopRequireDefault(_production_left);
+
+	var _production_right = __webpack_require__(139);
+
+	var _production_right2 = _interopRequireDefault(_production_right);
+
+	var _production_list = __webpack_require__(144);
+
+	var _production_list2 = _interopRequireDefault(_production_list);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    data: function data() {
+	        return {
+	            msg: 'hello vue'
+	        };
+	    },
+
+	    components: {
+	        'content-left': _production_left2.default,
+	        'content-right': _production_right2.default,
+	        'product-list': _production_list2.default
+	    }
+	};
+	// </script>
+	//
+	// <template>
+	//     <div id="production">
+	//         <div class="blog" style=" background-image: url('http://ohsmsw5ly.bkt.clouddn.com/image/bj-red.jpg');background-size: cover;"><!-- start main -->
+	//             <div class="container">
+	//                 <div class="main row">
+	//                     <content-left></content-left>
+	//                     <content-right></content-right>
+	//                     <product-list></product-list>
+	//                     <div class="clearfix"></div>
+	//                 </div>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <style>
+	//
+	// </style>
+	// <script>
+
+/***/ },
+/* 132 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div id=\"production\">\r\n        <div class=\"blog\" style=\" background-image: url('http://ohsmsw5ly.bkt.clouddn.com/image/bj-red.jpg');background-size: cover;\"><!-- start main -->\r\n            <div class=\"container\">\r\n                <div class=\"main row\">\r\n                    <content-left></content-left>\r\n                    <content-right></content-right>\r\n                    <product-list></product-list>\r\n                    <div class=\"clearfix\"></div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+
+/***/ },
+/* 133 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div>\r\n        <contents></contents>\r\n        <fotter></fotter>\r\n        <fotter-end></fotter-end>\r\n    </div>\r\n";
+
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(135)
+	__vue_script__ = __webpack_require__(137)
+	__vue_template__ = __webpack_require__(138)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "D:\\nodejs\\WebstormProjects\\blog-vue\\public\\components\\production\\production_left.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 135 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(136);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(20)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e4d3e42c&file=production_left.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_left.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-e4d3e42c&file=production_left.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_left.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 136 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(19)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n   .production_left{\r\n       background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;\r\n   }\r\n   .carousel-indicators li{\r\n       background-color: #ff4949!important;\r\n       padding: 10px;\r\n\r\n   }\r\n\r\n   .carousel-indicators .active {\r\n       background-color: #a71d5d!important;\r\n   }\r\n   .carousel-caption{\r\n       color: #000000;\r\n\r\n       font-size: 15px;\r\n   }\r\n    .center{\r\n      margin: auto;\r\n    }\r\n\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 137 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div>
+	//         <div class="col-md-8" >
+	//             <!--游览器轮播    -->
+	//             <div id="carousel-cs" class="carousel slide" data-ride="carousel" style="margin: auto;background-color: white">
+	//                 <!-- 轮播（Carousel）指标 -->
+	//                 <ol class="carousel-indicators">
+	//                     <li data-target="#carousel-cs" data-slide-to="0" class="active"></li>
+	//                     <li data-target="#carousel-cs" data-slide-to="1"></li>
+	//                     <li data-target="#carousel-cs" data-slide-to="2"></li>
+	//                     <li data-target="#carousel-cs" data-slide-to="3"></li>
+	//                 </ol>
+	//
+	//                 <!-- 轮播（Carousel）项目 -->
+	//                 <div class="carousel-inner" role="listbox" data-interval="2000">
+	//                     <div class="item active">
+	//                         <img class="carousel_img center" src="/images/zp-browser.png" alt="11">
+	//                         <div class="carousel-caption">
+	//                             游览器介绍页面
+	//                         </div>
+	//                     </div>
+	//                     <div class="item">
+	//                         <img class="carousel_img center" src="/images/zp-blog.png" alt="...">
+	//                         <div class="carousel-caption">
+	//                             博客
+	//                         </div>
+	//                     </div>
+	//                     <div class="item">
+	//                         <img class="carousel_img center" src="/images/zp-2048.png" alt="...">
+	//                         <div class="carousel-caption">
+	//                             2048小游戏
+	//                         </div>
+	//                     </div>
+	//                     <div class="item">
+	//                         <img class="carousel_img center" src="/images/zp-zm.png" alt="...">
+	//                         <div class="carousel-caption">
+	//                             祖玛小游戏
+	//                         </div>
+	//                     </div>
+	//                 </div>
+	//                 <!-- 轮播（Carousel）导航 -->
+	//                 <a class="left carousel-control" href="#carousel-cs" role="button" data-slide="prev">
+	//                     <span class="glyphicon glyphicon-chevron-left"></span>
+	//                     <span class="sr-only">Previous</span>
+	//                 </a>
+	//                 <a class="right carousel-control" href="#carousel-cs" role="button" data-slide="next">
+	//                     <span class="glyphicon glyphicon-chevron-right"></span>
+	//                     <span class="sr-only">Next</span>
+	//                 </a>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <style>
+	//    .production_left{
+	//        background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;
+	//    }
+	//    .carousel-indicators li{
+	//        background-color: #ff4949!important;
+	//        padding: 10px;
+	//
+	//    }
+	//
+	//    .carousel-indicators .active {
+	//        background-color: #a71d5d!important;
+	//    }
+	//    .carousel-caption{
+	//        color: #000000;
+	//
+	//        font-size: 15px;
+	//    }
+	//     .center{
+	//       margin: auto;
+	//     }
+	//
+	// </style>
+	// <script>
+	//import HeaderComponent from './components/header.vue'
+	//import OtherComponent from './components/other.vue'
+	exports.default = {
+	    data: function data() {
+	        return {
+	            msg: 'hello vue'
+	        };
+	    },
+
+	    components: {}
+	};
+	// </script>
+	//
+
+/***/ },
+/* 138 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div>\r\n        <div class=\"col-md-8\" >\r\n            <!--游览器轮播    -->\r\n            <div id=\"carousel-cs\" class=\"carousel slide\" data-ride=\"carousel\" style=\"margin: auto;background-color: white\">\r\n                <!-- 轮播（Carousel）指标 -->\r\n                <ol class=\"carousel-indicators\">\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"0\" class=\"active\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"1\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"2\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"3\"></li>\r\n                </ol>\r\n\r\n                <!-- 轮播（Carousel）项目 -->\r\n                <div class=\"carousel-inner\" role=\"listbox\" data-interval=\"2000\">\r\n                    <div class=\"item active\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-browser.png\" alt=\"11\">\r\n                        <div class=\"carousel-caption\">\r\n                            游览器介绍页面\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-blog.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            博客\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-2048.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            2048小游戏\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-zm.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            祖玛小游戏\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <!-- 轮播（Carousel）导航 -->\r\n                <a class=\"left carousel-control\" href=\"#carousel-cs\" role=\"button\" data-slide=\"prev\">\r\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\r\n                    <span class=\"sr-only\">Previous</span>\r\n                </a>\r\n                <a class=\"right carousel-control\" href=\"#carousel-cs\" role=\"button\" data-slide=\"next\">\r\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\r\n                    <span class=\"sr-only\">Next</span>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(140)
+	__vue_script__ = __webpack_require__(142)
+	__vue_template__ = __webpack_require__(143)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "D:\\nodejs\\WebstormProjects\\blog-vue\\public\\components\\production\\production_right.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 140 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(141);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(20)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6270c949&file=production_right.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_right.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-6270c949&file=production_right.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_right.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(19)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n    .pro_h3{\r\n        padding: 5px;\r\n    }\r\n    .product_right{\r\n        background-color: #F9FAFC;border-radius: 5px; font-size: 14px;margin: 15px}\r\n    .production_left{\r\n        background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;\r\n    }\r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 142 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div>
+	//         <div class="col-md-4 production_left">
+	//             <div class="product_right">
+	//                 <h3 class="pro_h3">作品说明:</h3>
+	//                 <p style="text-indent: 20px">下面的一些内容都是博主工作闲余时间学习过后为巩固知识做的各个练习。</p>
+	//                 <p style="text-indent: 20px">由于工作原因，本人大部分工作内容都是在写后台服务、做接口。
+	//                     偶尔做些查询界面也是用公司的组件编辑器和ext。出于对js的热情,
+	//                     特别期望能学到一些更高层次的js编写方式，随而从基础开始看书、看视频、逛各种论坛。
+	//                     从最初的js基础到dom操作，从面向过程到面向对象、在到用seajs进行模块化开发。
+	//                     很多内容来回学习了好几遍,对于js自我感觉刚刚入门,以后的时间会继续的学习下去。加油~自己！
+	//                 </p>
+	//                 <button style="margin-top: 30px;margin-bottom: 10px" type="button" class="btn btn-danger" id="sPractice">
+	//                     <a href="https://jqsc.github.io/practice/index.html" target="_blank" style="list-style: none;color: white;">各种小练习</a>
+	//                 </button>
+	//             </div>
+	//         </div>
+	//     </div>
+	// </template>
+	// <style>
+	//     .pro_h3{
+	//         padding: 5px;
+	//     }
+	//     .product_right{
+	//         background-color: #F9FAFC;border-radius: 5px; font-size: 14px;margin: 15px}
+	//     .production_left{
+	//         background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;
+	//     }
+	// </style>
+	// <script>
+	//import HeaderComponent from './components/header.vue'
+	//import OtherComponent from './components/other.vue'
+	exports.default = {
+	    data: function data() {
+	        return {
+	            msg: 'hello vue'
+	        };
+	    },
+
+	    components: {}
+	};
+	// </script>
+	//
+
+/***/ },
+/* 143 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div>\r\n        <div class=\"col-md-4 production_left\">\r\n            <div class=\"product_right\">\r\n                <h3 class=\"pro_h3\">作品说明:</h3>\r\n                <p style=\"text-indent: 20px\">下面的一些内容都是博主工作闲余时间学习过后为巩固知识做的各个练习。</p>\r\n                <p style=\"text-indent: 20px\">由于工作原因，本人大部分工作内容都是在写后台服务、做接口。\r\n                    偶尔做些查询界面也是用公司的组件编辑器和ext。出于对js的热情,\r\n                    特别期望能学到一些更高层次的js编写方式，随而从基础开始看书、看视频、逛各种论坛。\r\n                    从最初的js基础到dom操作，从面向过程到面向对象、在到用seajs进行模块化开发。\r\n                    很多内容来回学习了好几遍,对于js自我感觉刚刚入门,以后的时间会继续的学习下去。加油~自己！\r\n                </p>\r\n                <button style=\"margin-top: 30px;margin-bottom: 10px\" type=\"button\" class=\"btn btn-danger\" id=\"sPractice\">\r\n                    <a href=\"https://jqsc.github.io/practice/index.html\" target=\"_blank\" style=\"list-style: none;color: white;\">各种小练习</a>\r\n                </button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+
+/***/ },
+/* 144 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __vue_script__, __vue_template__
+	__webpack_require__(145)
+	__vue_script__ = __webpack_require__(147)
+	__vue_template__ = __webpack_require__(148)
+	module.exports = __vue_script__ || {}
+	if (module.exports.__esModule) module.exports = module.exports.default
+	if (__vue_template__) { (typeof module.exports === "function" ? module.exports.options : module.exports).template = __vue_template__ }
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "D:\\nodejs\\WebstormProjects\\blog-vue\\public\\components\\production\\production_list.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, __vue_template__)
+	  }
+	})()}
+
+/***/ },
+/* 145 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(146);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(20)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-775dfb01&file=production_list.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_list.vue", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-775dfb01&file=production_list.vue!./../../../node_modules/vue-loader/lib/selector.js?type=style&index=0!./production_list.vue");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 146 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(19)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "\r\n   \r\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 147 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// <template>
+	//     <div>
+	//
+	//     </div>
+	// </template>
+	// <style>
+	//
+	// </style>
+	// <script>
+	//import HeaderComponent from './components/header.vue'
+	//import OtherComponent from './components/other.vue'
+	exports.default = {
+	    data: function data() {
+	        return {
+	            msg: 'hello vue'
+	        };
+	    },
+
+	    components: {}
+	};
+	// </script>
+	//
+
+/***/ },
+/* 148 */
+/***/ function(module, exports) {
+
+	module.exports = "\r\n    <div>\r\n       \r\n    </div>\r\n";
 
 /***/ }
 ]);

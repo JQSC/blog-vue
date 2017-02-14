@@ -66,7 +66,7 @@
     var year=todayDate.getFullYear(); // 年
     var day=todayDate.getDate(); //日
     var month=todayDate.getMonth()+1; //月
-    var ddd=year+"-"+month+"-"+day;
+    var ddd=year+"-"+month+"-"+day
     import contentRightNote from './contentRightNote.vue'
     import contentRightColor from './contentRightColor.vue'
     import contentRightEmail from './contentRightEmail.vue'

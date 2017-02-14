@@ -9,7 +9,7 @@
               <ul class="top-nav nav_list">
                 <!--<li><a><img src="/images/logo1.png"></a></li>-->
                 <li><a><img style="height: 42px" src="/images/logo-new2.png"></a></li>
-                <li><a href="production">作品 <span class="sr-only">(current)</span></a></li>
+                <li class="page-scroll"><router-link to="/production">作品</router-link></li>
                 <li class="page-scroll"><router-link to="/about">关于</router-link></li>
                 <li class="logo page-scroll"><router-link to="/blog"><img src="/images/logo.png" alt="" class="responsive"/></router-link></li>
                 <li class="page-scroll"><router-link to="/blog">博客</router-link></li>
