@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../database/db')
+var db = require('../database/db');
 var user=db.user;
-var url=require('url')
+var url=require('url');
 var Promise=require('bluebird');
 
+//服务端渲染  以Promise形式进行异步流程的顺序化   --old
 function findById(id){
   return new Promise(function(resolve,reject){
     user.findById(id,function(err,text){
@@ -16,7 +17,7 @@ function findById(id){
     })
   })
 }
-
+//服务端渲染  以Promise形式进行异步流程的顺序化   --old
 function articleUpdate(id,text){
   var readNum=text.readNum+1
   return new Promise(function(resolve,reject){
@@ -30,7 +31,7 @@ function articleUpdate(id,text){
   })
 }
 
-//跳转文章页
+//跳转文章页  --old
 router.post('/GetArticleContent', function(req, res) {
 
   var id=req.body.articleId;
@@ -47,7 +48,7 @@ router.post('/GetArticleContent', function(req, res) {
       })
 });
 
-//控制台路由配置
+//控制台路由配置  --iframe中的展示内容
 router.get('/*', function(req, res) {
 
    switch(req.params[0]){

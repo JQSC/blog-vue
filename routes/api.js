@@ -11,7 +11,7 @@ var messages=db.messages;
 
 
 
-///获取天气详细情况
+///获取天气api   --免费的已失效
 var options={
     uri: 'http://api.avatardata.cn/WeatherAdv/Query?key=ec8bd565b64ac8fb745c476158723bf4&city=shanghai&unit=c&aqi=all'
   /*  uri: 'http://apis.baidu.com/thinkpage/weather_api/currentweather?location=beijing&language=zh-Hans&unit=c',
@@ -21,8 +21,8 @@ var options={
 };
 
 //获取天气内容
-router.get('/GetWeather', function(req, res) {
-    res.json({});
+router.get('/weather', function(req, res) {
+    res.json();
     /*request(options, function (err, response, string) {
         if (!err) {
             var jsonStr = eval('(' + string + ')') ;
@@ -36,10 +36,9 @@ router.get('/GetWeather', function(req, res) {
 
 
 //获取留言
-router.post('/GetNote',function(req,res){
-    console.log(req.body.num)
+router.post('/note',function(req,res){
+
     var pageMessage={limit:5,num:req.body.num};
-    //type:{ $ne:-1 }
     var modelMessage = {
         search:{type:{ $ne:-1 }},    //查询条件
         columns:{
@@ -54,6 +53,7 @@ router.post('/GetNote',function(req,res){
         page:pageMessage,
         sort:req.body.sort||-1
     };
+
     messages.findPagNote(modelMessage,function(err, pageCount, list){
         if(!err){
             var listPage={
@@ -67,13 +67,17 @@ router.post('/GetNote',function(req,res){
 
 //删除留言
 router.post('/deleteNote',function(req,res){
-    var id=req.body.id
+
+    var id=req.body.id;
+
     messages.update({_id:id},{$set:{type:-1}},function (err,a) {
         if (err) return handleError(err);
         res.json({success:'OK!'});
     });
+
 });
-//获取文章内容
+
+//获取文章内容 ,根据传入页码进行分页
 router.post('/getContentMain',function(req,res){
 
     var search={};
@@ -104,6 +108,7 @@ router.post('/getContentMain',function(req,res){
         page:page,
         sort:req.body.sort||-1
     };
+
     user.findPagination(model,function(err, pageCount, list){
         if(!err){
             var listPage={
@@ -112,7 +117,7 @@ router.post('/getContentMain',function(req,res){
             };
             res.json(listPage)
         }else{
-            console.error("获取文章内容出现异常错误!"+err.stack)
+            console.error("获取文章内容出现异常错误!"+err.stack);
             res.status=500;
             res.setHeader('content-type','text/plain')
             res.end('Server error')
@@ -124,7 +129,7 @@ router.post('/getContentMain',function(req,res){
 
 
 
-//获取文章列表
+//获取文章列表  --内容详细页用作跳转
 router.get('/getArticleList',function(req,res) {
     user.find({},{'title':1},{limit:20},function(error, results){
         if(!error){
@@ -135,7 +140,7 @@ router.get('/getArticleList',function(req,res) {
 });
 
 
-//获取评论
+//获取评论内容
 router.post('/GetComment', function(req, res) {
     var searchId = req.body.articleId;
     comments.find({articleId:searchId},function(err,article) {
@@ -183,11 +188,11 @@ router.get('/praise', function(req, res) {
     });
 });
 
-//评论
+//用户评论
 router.post('/search/:id/commit', function(req, res) {
 
     var NowDate=new Date();
-    console.log("开始评论!!!!!!!!!!!!!!");
+    //console.log("开始!!!!!!!!!!!!!!");
 
     (function(){
         comments.count({articleId:req.params.id}, function (err, doc) {
@@ -213,7 +218,7 @@ router.post('/search/:id/commit', function(req, res) {
 //发送邮件中间件
 var nodeMailer=require('../lib/sendmail.js');
 //发送邮件
-router.post('/SendEmail',function(req,res){
+router.post('/email',function(req,res){
 
     var Email = req.body.Email;
     //'"池圣齐"<916024826@qq.com>'

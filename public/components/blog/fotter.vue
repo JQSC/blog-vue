@@ -111,7 +111,7 @@
         methods:{
             //邮箱验证
             fun_email:function(){
-                var re=/^\w+@[a-z0-9]+(\.[a-z]{2,3}){1,3}$/ig
+                var re=/^\w+@[a-z0-9]+(\.[a-z]{2,3}){1,3}$/ig;
                 if(!re.test(this.email)){
                     this.waring_email=true
                 }else{
@@ -120,18 +120,18 @@
             },
             //昵称栏光标移开事件
             fun_name:function(){
-             var re=/\D+/g
+             var re=/\D+/g;
                 if(!re.test(this.state)){
                     this.waring_name=true
                 }else{
-                    alert(22)
+
                     this.waring_name=false
                 }
             },
             writingPrompt:function(index){
                switch (index){
                    case 0:
-                       this.messages=this.messages+'****'
+                       this.messages=this.messages+'****';
                        break;
                    default :
                        break
@@ -143,9 +143,9 @@
             ///将留言数据发送服务器
             SendLeMessage:function(){
                 this.$http.post('/api/LeMessage').then(function(res){
-                    this.diglog='<h4>提交成功!!</h4>'
-                    this.color='Success'
-                    this.alert=true
+                    this.diglog='<h4>提交成功!!</h4>';
+                    this.color='Success';
+                    this.alert=true;
                     var self=this;
                     setTimeout(function(){
                         self.alert=false
@@ -153,9 +153,9 @@
                     console.log(res.data.success)
 
                 },function(res){
-                    this.diglog='<h4>提交失败,服务器异常!!</h4>'
+                    this.diglog='<h4>提交失败,服务器异常!!</h4>';
                     this.color='Danger'
-                    this.alert=true
+                    this.alert=true;
                     var self=this;
 
                     console.log(res)
@@ -194,9 +194,9 @@
             },
             open(){
                 if ((this.messages == '') || (this.state == '')) {
-                    this.diglog='<h4>错误！昵称和内容不允许为空!!</h4>'
-                    this.color='Danger'
-                    this.alert=true
+                    this.diglog='<h4>错误！昵称和内容不允许为空!!</h4>';
+                    this.color='Danger';
+                    this.alert=true;
                     var self=this;
                     setTimeout(function(){
                         self.alert=false

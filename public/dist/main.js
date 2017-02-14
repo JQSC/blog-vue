@@ -4975,7 +4975,7 @@ webpackJsonp([0],[
 	// <template>
 	//     <div>
 	//         <h2 class="h2style row" style=" border-radius: 10px;color: rgb(17, 15, 15);background-color: rgb(225, 213, 220)">
-	//             <p class="col-md-7" >If you don't bird me,I won't bird you,too.</p>
+	//             <p class="col-md-7" style="letter-spacing:3px;">宁可在骄阳里暴晒,也不愿在黑暗中偷生!</p>
 	//             <div class="col-md-5">
 	//                 <!--<img src="http://mjs.sinaimg.cn/wap/online/public/images/weather/day/yu.gif?v=2016092216"-->
 	//                 <!--width="20" height="20">-->
@@ -5002,8 +5002,8 @@ webpackJsonp([0],[
 	    },
 	    methods: {
 	        GetWeatherInfo: function GetWeatherInfo() {
-	            this.$http.get('/api/GetWeather').then(function (response) {
-	                if (response.data.results) {
+	            this.$http.get('/api/weather').then(function (response) {
+	                if (response.data && response.data.results) {
 	                    this.text = response.data.results[0].now.text;
 	                    this.temperature = response.data.results[0].now.temperature;
 	                } else {
@@ -5023,7 +5023,7 @@ webpackJsonp([0],[
 /* 39 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <div>\r\n        <h2 class=\"h2style row\" style=\" border-radius: 10px;color: rgb(17, 15, 15);background-color: rgb(225, 213, 220)\">\r\n            <p class=\"col-md-7\" >If you don't bird me,I won't bird you,too.</p>\r\n            <div class=\"col-md-5\">\r\n                <!--<img src=\"http://mjs.sinaimg.cn/wap/online/public/images/weather/day/yu.gif?v=2016092216\"-->\r\n                <!--width=\"20\" height=\"20\">-->\r\n                北京 · {{text}} ·  {{temperature}}°C\r\n            </div>\r\n        </h2>\r\n    </div>\r\n";
+	module.exports = "\r\n    <div>\r\n        <h2 class=\"h2style row\" style=\" border-radius: 10px;color: rgb(17, 15, 15);background-color: rgb(225, 213, 220)\">\r\n            <p class=\"col-md-7\" style=\"letter-spacing:3px;\">宁可在骄阳里暴晒,也不愿在黑暗中偷生!</p>\r\n            <div class=\"col-md-5\">\r\n                <!--<img src=\"http://mjs.sinaimg.cn/wap/online/public/images/weather/day/yu.gif?v=2016092216\"-->\r\n                <!--width=\"20\" height=\"20\">-->\r\n                北京 · {{text}} ·  {{temperature}}°C\r\n            </div>\r\n        </h2>\r\n    </div>\r\n";
 
 /***/ },
 /* 40 */
@@ -5327,7 +5327,7 @@ webpackJsonp([0],[
 	    methods: {
 	        GetNoteContent: function GetNoteContent(pageNum) {
 	            var page = pageNum || 1;
-	            this.$http.post('/api/GetNote', { num: page }).then(function (response) {
+	            this.$http.post('/api/note', { num: page }).then(function (response) {
 	                this.showLoadNote = false;
 	                this.items = response.data.list;
 	                this.pageItems = [];
@@ -5873,7 +5873,7 @@ webpackJsonp([0],[
 	        },
 	        SendLeMessage: function SendLeMessage() {
 
-	            this.$http.post('/api/SendEmail', { Email: this.Email }).then(function (res) {
+	            this.$http.post('/api/email', { Email: this.Email }).then(function (res) {
 
 	                if (res.data.success) {
 	                    alert("测试邮件已发送目标邮箱!!");
@@ -6024,7 +6024,7 @@ webpackJsonp([0],[
 	            if (!re.test(this.state)) {
 	                this.waring_name = true;
 	            } else {
-	                alert(22);
+
 	                this.waring_name = false;
 	            }
 	        },
@@ -6564,7 +6564,7 @@ webpackJsonp([0],[
 	                this.content = res.data.content;
 	            }, function (res) {
 	                this.load = false;
-	                console.log(res);
+	                //console.log(res)
 	            });
 	        }
 	    },
@@ -6935,7 +6935,7 @@ webpackJsonp([0],[
 	        GetArticleList: function GetArticleList() {
 	            this.$http.get('/api/getArticleList').then(function (res) {
 
-	                console.log(res.data);
+	                //console.log(res.data)
 	                this.items = res.data;
 	            }, function (res) {
 	                /*  this.load=false
@@ -7096,7 +7096,6 @@ webpackJsonp([0],[
 	    watch: {
 	        fun: function fun() {
 	            this.GetComment();
-	            //alert(this.fun)
 	        }
 	    },
 	    methods: {
@@ -7250,7 +7249,6 @@ webpackJsonp([0],[
 	                alert("请输入昵称！");
 	                ev.preventDefault();
 	            }
-	            alert(text);
 	            ev.preventDefault();
 	            this.articleText = text;
 	        }

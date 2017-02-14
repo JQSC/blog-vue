@@ -61,19 +61,19 @@
         },
         methods:{
             GetNoteContent:function(pageNum){
-                var page=pageNum||1
-                this.$http.post('/api/GetNote',{num:page}).then( function(response) {
-                    this.showLoadNote=false
+                var page=pageNum||1;
+                this.$http.post('/api/note',{num:page}).then( function(response) {
+                    this.showLoadNote=false;
                     this.items=response.data.list;
-                    this.pageItems=[]
+                    this.pageItems=[];
                     for(var i=0;i<response.data.pageCount;i++){
                         var pagCounts={pagCount:i+1,IsActive:false};
                         this.pageItems.push(pagCounts)
                     }
-                    this.pageItems[page-1].IsActive=true
+                    this.pageItems[page-1].IsActive=true;
                    // this.$set('gridData', {a:2})
                 }, function (response) {
-                    this.showLoadNote=false
+                    this.showLoadNote=false;
                    /* this.$message({
                         type: 'error',
                         message: '数据库连接超时,查询失败!'
@@ -82,21 +82,21 @@
                 })
             },
             PageTurning:function(item){
-                this.showLoadNote=true
+                this.showLoadNote=true;
                 for(var j=0;j<this.pageItems.length;j++){
                     this.pageItems[j].IsActive=false
                 }
-                item.IsActive=!item.IsActive
+                item.IsActive=!item.IsActive;
                 this.GetNoteContent(item.pagCount);
             },
             PageUp:function(type){
                 //上一页
-                this.showLoadNote=true
+                this.showLoadNote=true;
                 if(type==-1){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount>1)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[k-1].IsActive=true
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[k-1].IsActive=true;
                             this.GetNoteContent(this.pageItems[k-1].pagCount);
                         }
                     }
@@ -105,8 +105,8 @@
                 if(type==1){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[k+1].IsActive=true
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[k+1].IsActive=true;
                             this.GetNoteContent(this.pageItems[k+1].pagCount);
                         }
                     }
@@ -115,8 +115,8 @@
                 if(type==0){
                     for(var k=0;k<this.pageItems.length;k++){
                         if((this.pageItems[k].IsActive==true)&&(this.pageItems[k].pagCount<this.pageItems.length)){
-                            this.pageItems[k].IsActive=false
-                            this.pageItems[this.pageItems.length-1].IsActive=true
+                            this.pageItems[k].IsActive=false;
+                            this.pageItems[this.pageItems.length-1].IsActive=true;
                             this.GetNoteContent(this.pageItems.length);
                         }
                     }

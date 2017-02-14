@@ -68,7 +68,7 @@
             GetArticleList:function(){
                 this.$http.get('/api/getArticleList').then(function(res){
 
-                   console.log(res.data)
+                    //console.log(res.data)
                     this.items=res.data
 
 

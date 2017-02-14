@@ -62,13 +62,12 @@
         watch:{
             fun:function(){
                 this.GetComment();
-                //alert(this.fun)
             }
         },
         methods:{
             GetComment:function(){
                 this.$http.post('/api/GetComment',{articleId:this.fun||this.$route.params.id}).then(function(res){
-                    this.articleNum=res.data.articleNum
+                    this.articleNum=res.data.articleNum;
                     this.comments=res.data.article
 
                 },function(res){

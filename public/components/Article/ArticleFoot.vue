@@ -46,19 +46,18 @@
         methods:{
             commentSubmit:function(ev){
                 var arr = [];
-                var ue=UE.getEditor('editor')
+                var ue=UE.getEditor('editor');
                 arr.push(ue.getContent());
-                var text=arr.join("\n")
+                var text=arr.join("\n");
                 if(text.length>500)
                 {
-                    alert("内容超长!!")
+                    alert("内容超长!!");
                     ev.preventDefault()
                 }
                 if((this.nickname=="")||((this.nickname=="起个昵称吧(必填)"))){
-                    alert("请输入昵称！")
+                    alert("请输入昵称！");
                     ev.preventDefault()
                 }
-                alert(text)
                 ev.preventDefault()
                 this.articleText=text
             }

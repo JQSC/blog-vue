@@ -91,8 +91,8 @@
                     this.content=res.data.content
 
                 },function(res){
-                    this.load=false
-                    console.log(res)
+                    this.load=false;
+                    //console.log(res)
                 })
             }
         },
