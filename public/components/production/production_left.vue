@@ -2,17 +2,17 @@
     <div>
         <div class="col-md-8" >
             <!--游览器轮播    -->
-            <div id="carousel-cs" class="carousel slide" data-ride="carousel" style="margin: auto;background-color: white">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: auto;background-color: white">
                 <!-- 轮播（Carousel）指标 -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-cs" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-cs" data-slide-to="1"></li>
-                    <li data-target="#carousel-cs" data-slide-to="2"></li>
-                    <li data-target="#carousel-cs" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
                 </ol>
 
                 <!-- 轮播（Carousel）项目 -->
-                <div class="carousel-inner" role="listbox" data-interval="2000">
+                <div class="carousel-inner" role="listbox">
                     <div class="item active">
                         <img class="carousel_img center" src="/images/zp-browser.png" alt="11">
                         <div class="carousel-caption">
@@ -39,11 +39,11 @@
                     </div>
                 </div>
                 <!-- 轮播（Carousel）导航 -->
-                <a class="left carousel-control" href="#carousel-cs" role="button" data-slide="prev">
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" >
                     <span class="glyphicon glyphicon-chevron-left"></span>
                     <span class="sr-only">Previous</span>
                 </a>
-                <a class="right carousel-control" href="#carousel-cs" role="button" data-slide="next">
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                     <span class="sr-only">Next</span>
                 </a>
@@ -60,7 +60,9 @@
        padding: 10px;
 
    }
-
+   .carousel-control{
+       color:#a71d5d
+   }
    .carousel-indicators .active {
        background-color: #a71d5d!important;
    }
@@ -75,6 +77,13 @@
 
 </style>
 <script>
+    $(".start-slide").click(function(){
+        $("#myCarousel").carousel('cycle');
+    });
+    // 循环轮播到上一个项目
+    $(".prev-slide").click(function(){
+        $("#myCarousel").carousel('prev');
+    });
     //import HeaderComponent from './components/header.vue'
     //import OtherComponent from './components/other.vue'
     export default{

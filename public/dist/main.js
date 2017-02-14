@@ -7776,7 +7776,7 @@ webpackJsonp([0],[
 	// <template>
 	//     <div>
 	//         <contents></contents>
-	//         <fotter></fotter>
+	//
 	//         <fotter-end></fotter-end>
 	//     </div>
 	// </template>
@@ -7916,7 +7916,7 @@ webpackJsonp([0],[
 /* 133 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <div>\r\n        <contents></contents>\r\n        <fotter></fotter>\r\n        <fotter-end></fotter-end>\r\n    </div>\r\n";
+	module.exports = "\r\n    <div>\r\n        <contents></contents>\r\n\r\n        <fotter-end></fotter-end>\r\n    </div>\r\n";
 
 /***/ },
 /* 134 */
@@ -7976,7 +7976,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "\r\n   .production_left{\r\n       background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;\r\n   }\r\n   .carousel-indicators li{\r\n       background-color: #ff4949!important;\r\n       padding: 10px;\r\n\r\n   }\r\n\r\n   .carousel-indicators .active {\r\n       background-color: #a71d5d!important;\r\n   }\r\n   .carousel-caption{\r\n       color: #000000;\r\n\r\n       font-size: 15px;\r\n   }\r\n    .center{\r\n      margin: auto;\r\n    }\r\n\r\n", ""]);
+	exports.push([module.id, "\r\n   .production_left{\r\n       background-color: rgb(249, 250, 252);border-radius: 5px;padding: 0!important;\r\n   }\r\n   .carousel-indicators li{\r\n       background-color: #ff4949!important;\r\n       padding: 10px;\r\n\r\n   }\r\n   .carousel-control{\r\n       color:#a71d5d\r\n   }\r\n   .carousel-indicators .active {\r\n       background-color: #a71d5d!important;\r\n   }\r\n   .carousel-caption{\r\n       color: #000000;\r\n\r\n       font-size: 15px;\r\n   }\r\n    .center{\r\n      margin: auto;\r\n    }\r\n\r\n", ""]);
 
 	// exports
 
@@ -7985,7 +7985,7 @@ webpackJsonp([0],[
 /* 137 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -7994,17 +7994,17 @@ webpackJsonp([0],[
 	//     <div>
 	//         <div class="col-md-8" >
 	//             <!--游览器轮播    -->
-	//             <div id="carousel-cs" class="carousel slide" data-ride="carousel" style="margin: auto;background-color: white">
+	//             <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin: auto;background-color: white">
 	//                 <!-- 轮播（Carousel）指标 -->
 	//                 <ol class="carousel-indicators">
-	//                     <li data-target="#carousel-cs" data-slide-to="0" class="active"></li>
-	//                     <li data-target="#carousel-cs" data-slide-to="1"></li>
-	//                     <li data-target="#carousel-cs" data-slide-to="2"></li>
-	//                     <li data-target="#carousel-cs" data-slide-to="3"></li>
+	//                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	//                     <li data-target="#myCarousel" data-slide-to="1"></li>
+	//                     <li data-target="#myCarousel" data-slide-to="2"></li>
+	//                     <li data-target="#myCarousel" data-slide-to="3"></li>
 	//                 </ol>
 	//
 	//                 <!-- 轮播（Carousel）项目 -->
-	//                 <div class="carousel-inner" role="listbox" data-interval="2000">
+	//                 <div class="carousel-inner" role="listbox">
 	//                     <div class="item active">
 	//                         <img class="carousel_img center" src="/images/zp-browser.png" alt="11">
 	//                         <div class="carousel-caption">
@@ -8031,11 +8031,11 @@ webpackJsonp([0],[
 	//                     </div>
 	//                 </div>
 	//                 <!-- 轮播（Carousel）导航 -->
-	//                 <a class="left carousel-control" href="#carousel-cs" role="button" data-slide="prev">
+	//                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" >
 	//                     <span class="glyphicon glyphicon-chevron-left"></span>
 	//                     <span class="sr-only">Previous</span>
 	//                 </a>
-	//                 <a class="right carousel-control" href="#carousel-cs" role="button" data-slide="next">
+	//                 <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
 	//                     <span class="glyphicon glyphicon-chevron-right"></span>
 	//                     <span class="sr-only">Next</span>
 	//                 </a>
@@ -8052,7 +8052,9 @@ webpackJsonp([0],[
 	//        padding: 10px;
 	//
 	//    }
-	//
+	//    .carousel-control{
+	//        color:#a71d5d
+	//    }
 	//    .carousel-indicators .active {
 	//        background-color: #a71d5d!important;
 	//    }
@@ -8067,6 +8069,13 @@ webpackJsonp([0],[
 	//
 	// </style>
 	// <script>
+	$(".start-slide").click(function () {
+	    $("#myCarousel").carousel('cycle');
+	});
+	// 循环轮播到上一个项目
+	$(".prev-slide").click(function () {
+	    $("#myCarousel").carousel('prev');
+	});
 	//import HeaderComponent from './components/header.vue'
 	//import OtherComponent from './components/other.vue'
 	exports.default = {
@@ -8085,7 +8094,7 @@ webpackJsonp([0],[
 /* 138 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <div>\r\n        <div class=\"col-md-8\" >\r\n            <!--游览器轮播    -->\r\n            <div id=\"carousel-cs\" class=\"carousel slide\" data-ride=\"carousel\" style=\"margin: auto;background-color: white\">\r\n                <!-- 轮播（Carousel）指标 -->\r\n                <ol class=\"carousel-indicators\">\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"0\" class=\"active\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"1\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"2\"></li>\r\n                    <li data-target=\"#carousel-cs\" data-slide-to=\"3\"></li>\r\n                </ol>\r\n\r\n                <!-- 轮播（Carousel）项目 -->\r\n                <div class=\"carousel-inner\" role=\"listbox\" data-interval=\"2000\">\r\n                    <div class=\"item active\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-browser.png\" alt=\"11\">\r\n                        <div class=\"carousel-caption\">\r\n                            游览器介绍页面\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-blog.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            博客\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-2048.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            2048小游戏\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-zm.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            祖玛小游戏\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <!-- 轮播（Carousel）导航 -->\r\n                <a class=\"left carousel-control\" href=\"#carousel-cs\" role=\"button\" data-slide=\"prev\">\r\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\r\n                    <span class=\"sr-only\">Previous</span>\r\n                </a>\r\n                <a class=\"right carousel-control\" href=\"#carousel-cs\" role=\"button\" data-slide=\"next\">\r\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\r\n                    <span class=\"sr-only\">Next</span>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
+	module.exports = "\r\n    <div>\r\n        <div class=\"col-md-8\" >\r\n            <!--游览器轮播    -->\r\n            <div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\" style=\"margin: auto;background-color: white\">\r\n                <!-- 轮播（Carousel）指标 -->\r\n                <ol class=\"carousel-indicators\">\r\n                    <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\r\n                    <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\r\n                    <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\r\n                    <li data-target=\"#myCarousel\" data-slide-to=\"3\"></li>\r\n                </ol>\r\n\r\n                <!-- 轮播（Carousel）项目 -->\r\n                <div class=\"carousel-inner\" role=\"listbox\">\r\n                    <div class=\"item active\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-browser.png\" alt=\"11\">\r\n                        <div class=\"carousel-caption\">\r\n                            游览器介绍页面\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-blog.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            博客\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-2048.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            2048小游戏\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"item\">\r\n                        <img class=\"carousel_img center\" src=\"/images/zp-zm.png\" alt=\"...\">\r\n                        <div class=\"carousel-caption\">\r\n                            祖玛小游戏\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <!-- 轮播（Carousel）导航 -->\r\n                <a class=\"left carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\" >\r\n                    <span class=\"glyphicon glyphicon-chevron-left\"></span>\r\n                    <span class=\"sr-only\">Previous</span>\r\n                </a>\r\n                <a class=\"right carousel-control\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\r\n                    <span class=\"glyphicon glyphicon-chevron-right\"></span>\r\n                    <span class=\"sr-only\">Next</span>\r\n                </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n";
 
 /***/ },
 /* 139 */
@@ -8267,7 +8276,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "\r\n   \r\n", ""]);
+	exports.push([module.id, "\r\n    .zp_list{\r\n        list-style: none;\r\n        margin: 0;\r\n        padding: 0;\r\n        margin-top: 30px;\r\n\r\n    }\r\n    .zp_list li{\r\n        list-style: none;\r\n        float: left;\r\n        padding: 5px;\r\n\r\n\r\n    }\r\n    .zp_list li img{\r\n        border: 2px solid #a71d5d;\r\n        border-radius: 5px;\r\n        width: 252px;\r\n        height: 230px;\r\n        overflow: hidden;\r\n    }\r\n    .zp_list li p{\r\n        margin-top: 10px;\r\n        margin-left: 5px;\r\n    }\r\n", ""]);
 
 	// exports
 
@@ -8284,18 +8293,64 @@ webpackJsonp([0],[
 	// <template>
 	//     <div>
 	//
+	//         <div class="col-md-12 about_left" style="margin-top: 20px">
+	//             <h3 class="h3">作品列表</h3>
+	//             <hr/>
+	//
+	//             <div class="container" id="zp">
+	//
+	//                 <ul class="zp_list" v-for="item in items">
+	//                     <li>
+	//                         <a :href='item.href' target="_blank">
+	//                             <img :src='item.img'>
+	//                         </a>
+	//                         <p>{{item.text}}</p>
+	//                         <p>代码地址:</p><p><a :href="item.codeLink">{{item.codeLink}}</a></p>
+	//                     </li>
+	//                 </ul>
+	//             </div>
+	//
+	//         </div>
 	//     </div>
 	// </template>
 	// <style>
+	//     .zp_list{
+	//         list-style: none;
+	//         margin: 0;
+	//         padding: 0;
+	//         margin-top: 30px;
 	//
+	//     }
+	//     .zp_list li{
+	//         list-style: none;
+	//         float: left;
+	//         padding: 5px;
+	//
+	//
+	//     }
+	//     .zp_list li img{
+	//         border: 2px solid #a71d5d;
+	//         border-radius: 5px;
+	//         width: 252px;
+	//         height: 230px;
+	//         overflow: hidden;
+	//     }
+	//     .zp_list li p{
+	//         margin-top: 10px;
+	//         margin-left: 5px;
+	//     }
 	// </style>
 	// <script>
-	//import HeaderComponent from './components/header.vue'
-	//import OtherComponent from './components/other.vue'
+
 	exports.default = {
 	    data: function data() {
 	        return {
-	            msg: 'hello vue'
+	            msg: 'hello vue',
+	            items: [{ img: '/images/zp-blog.png', href: 'http://chisir.top/',
+	                text: '博客', codeLink: 'https://github.com/JQSC/blog-vue' }, { img: '/images/zp-browser.png', href: 'http://sandbox.runjs.cn/show/vfvilr2e',
+	                text: '游览器介绍', codeLink: 'http://sandbox.runjs.cn/show/vfvilr2e' }, { img: '/images/zp-2048.png', href: 'http://sandbox.runjs.cn/show/ct2g7fyr',
+	                text: '2048小游戏', codeLink: 'http://sandbox.runjs.cn/show/ct2g7fyr' }, { img: '/images/zp-zm.png', href: 'http://sandbox.runjs.cn/show/eudqzizp',
+	                text: '祖玛小游戏', codeLink: 'http://sandbox.runjs.cn/show/eudqzizp' }]
 	        };
 	    },
 
@@ -8308,7 +8363,7 @@ webpackJsonp([0],[
 /* 148 */
 /***/ function(module, exports) {
 
-	module.exports = "\r\n    <div>\r\n       \r\n    </div>\r\n";
+	module.exports = "\r\n    <div>\r\n\r\n        <div class=\"col-md-12 about_left\" style=\"margin-top: 20px\">\r\n            <h3 class=\"h3\">作品列表</h3>\r\n            <hr/>\r\n\r\n            <div class=\"container\" id=\"zp\">\r\n\r\n                <ul class=\"zp_list\" v-for=\"item in items\">\r\n                    <li>\r\n                        <a :href='item.href' target=\"_blank\">\r\n                            <img :src='item.img'>\r\n                        </a>\r\n                        <p>{{item.text}}</p>\r\n                        <p>代码地址:</p><p><a :href=\"item.codeLink\">{{item.codeLink}}</a></p>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n\r\n        </div>\r\n    </div>\r\n";
 
 /***/ }
 ]);

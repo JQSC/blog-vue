@@ -1,7 +1,7 @@
 <template>
     <div>
         <contents></contents>
-        <fotter></fotter>
+
         <fotter-end></fotter-end>
     </div>
 </template>
